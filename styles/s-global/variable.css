@@ -1,0 +1,48 @@
+@import url(font.css);
+
+:root {
+  /* font */
+  --font-noto: "Noto Serif KR", serif;
+  --font-nanum: "Nanum Myeongjo", serif;
+  --font-mapo: "MapoFlowerIsland";
+
+  /* font size */
+  --fz-lg: 36px;
+  --fz-big: 24px;
+  --fz-base: 16px;
+  --fz-sm: 14px;
+  --fz-xs: 12px;
+
+  /* font weight */
+  --fw-black: 800;
+  --fw-bold: 700;
+  --fw-base: 500;
+  --fw-light: 400;
+  --fw-thin: 200;
+
+  /* color */
+  --navy: #192231;
+
+  --gold-100: #d8d0c5;
+  --gold-200: #d9c4a9;
+  --gold-300: #c0b283;
+  --gold-main: #d9b061;
+
+  --ivory: #eddbcd;
+  --pink-100: #d9aa90;
+  --pink-200: #a65e46;
+
+  --white: #f4f4f4;
+  --white-bg: #f4f4f490;
+
+  --black-100: #dee2e5;
+  --black-200: #949ea6;
+  --black-300: #414141;
+  --black-400: #404a42;
+  --modalBack: rgba(34, 34, 34, 0.7);
+
+  /* shadow */
+  --shadow-100: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  --shadow-200: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  --shadow-300: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+}
