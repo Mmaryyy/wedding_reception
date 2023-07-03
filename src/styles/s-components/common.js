@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import "./../s-global/variable.css";
+import styled from 'styled-components'
+import '../s-global/variable.css'
 
 // layout
 export const OuterWrapper = styled.main`
@@ -10,19 +10,19 @@ export const OuterWrapper = styled.main`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-`;
+`
 
 export const ContentWrapper = styled.section`
   width: 90%;
   background-color: var(--white-bg);
-  padding: ${(props) => props.padding || "0"};
+  padding: ${(props) => props.padding || '0'};
   margin: 10px;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-`;
+`
 
 // contents
 export const DivisionLine = styled.hr`
@@ -31,7 +31,7 @@ export const DivisionLine = styled.hr`
   background-color: var(--gold-300);
   border: 0;
   margin-bottom: 30px;
-`;
+`
 
 export const Content = styled.p`
   font-size: ${(props) => props.fz || `var(--fz-base)`};
@@ -39,4 +39,4 @@ export const Content = styled.p`
   @media (max-width: 720px) {
     font-size: var(--fz-base);
   }
-`;
+`
