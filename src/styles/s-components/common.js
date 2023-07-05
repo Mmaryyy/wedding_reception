@@ -30,7 +30,15 @@ export const DivisionLine = styled.hr`
   height: 1.5px;
   background-color: var(--gold-300);
   border: 0;
-  margin-bottom: 30px;
+  margin: 30px;
+`
+export const Title = styled.h1`
+  font-family: var(--font-mapo);
+  font-size: var(--fz-lg);
+  margin: ${(props) => props.margin || '0px'};
+  @media (max-width: 720px) {
+    font-size: var(--fz-big);
+  }
 `
 
 export const Content = styled.p`
