@@ -62,21 +62,13 @@ const Carousel = () => {
           </SlideBtn>
         </BtnWrapper>
         <BulletContainer>
-          <Bullet
-            id="0"
-            onClick={() => moveSlide(0)}
-            className={count === 0 ? 'active' : null}
-          />
-          <Bullet
-            id="1"
-            onClick={() => moveSlide(1)}
-            className={count === 1 ? 'active' : null}
-          />
-          <Bullet
-            id="2"
-            onClick={() => moveSlide(2)}
-            className={count === 2 ? 'active' : null}
-          />
+          {IMG.map((el, idx) => (
+            <Bullet
+              className={count === idx ? 'active' : null}
+              key={idx}
+              onClick={() => moveSlide(0)}
+            />
+          ))}
         </BulletContainer>
       </ControllContainer>
     </Container>
