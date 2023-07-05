@@ -5,7 +5,7 @@ import { GlobalStyle } from './styles/s-global/GlobalStyle'
 import { OuterWrapper } from './styles/s-components/common'
 import Invite from './components/Invite'
 import Intro from './components/Intro'
-import Gallery from './components/Gallery'
+import Carousel from './components/Carousel'
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
         <OuterWrapper>
           <Invite />
           <Intro />
-          <Gallery />
+          <Carousel />
         </OuterWrapper>
       </BrowserRouter>
     </>
