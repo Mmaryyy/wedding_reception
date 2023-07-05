@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React, { useEffect, useState } from 'react'
 import {
   Container,
@@ -12,13 +11,8 @@ import {
   Bullet,
 } from '../styles/s-components/carousel'
 
-const Carousel = () => {
-  const IMG = [
-    '/assets/couple1.png',
-    '/assets/couple2.png',
-    '/assets/couple3.png',
-  ]
-  const TOTAL_IMG = IMG.length - 1
+const Carousel = ({ imgSource }) => {
+  const TOTAL_IMG = imgSource.length - 1
   const IMG_WIDTH = 90
 
   const [count, setCount] = useState(0)
@@ -46,7 +40,7 @@ const Carousel = () => {
   return (
     <Container>
       <ImageBox className="img_box" count={count} imgWidth={IMG_WIDTH}>
-        {IMG.map((el, idx) => (
+        {imgSource.map((el, idx) => (
           <ImageList className="img" key={idx}>
             <Img src={el} alt={`couple${idx + 1}`} />
           </ImageList>
@@ -62,7 +56,7 @@ const Carousel = () => {
           </SlideBtn>
         </BtnWrapper>
         <BulletContainer>
-          {IMG.map((el, idx) => (
+          {imgSource.map((el, idx) => (
             <Bullet
               className={count === idx ? 'active' : null}
               key={idx}
