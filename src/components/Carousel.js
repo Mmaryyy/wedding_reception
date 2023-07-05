@@ -66,7 +66,7 @@ const Carousel = () => {
             <Bullet
               className={count === idx ? 'active' : null}
               key={idx}
-              onClick={() => moveSlide(0)}
+              onClick={() => moveSlide(idx)}
             />
           ))}
         </BulletContainer>
