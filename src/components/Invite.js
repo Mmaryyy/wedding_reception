@@ -1,8 +1,8 @@
 import React from 'react'
-import { Title } from '../styles/s-components/invite'
 import {
   DivisionLine,
   ContentWrapper,
+  Title,
   Content,
 } from '../styles/s-components/common'
 

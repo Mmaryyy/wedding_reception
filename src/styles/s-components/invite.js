@@ -10,12 +10,3 @@ export const InviteWrapper = styled.div`
   justify-content: center;
   align-items: center;
 `
-
-export const Title = styled.h1`
-  font-family: var(--font-mapo);
-  font-size: var(--fz-lg);
-  margin-bottom: 30px;
-  @media (max-width: 720px) {
-    font-size: var(--fz-big);
-  }
-`
