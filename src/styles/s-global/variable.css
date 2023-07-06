@@ -2,9 +2,9 @@
 
 :root {
   /* font */
-  --font-noto: "Noto Serif KR", serif;
-  --font-nanum: "Nanum Myeongjo", serif;
-  --font-mapo: "MapoFlowerIsland";
+  --font-noto: 'Noto Serif KR', serif;
+  --font-nanum: 'Nanum Myeongjo', serif;
+  --font-mapo: 'MapoFlowerIsland';
 
   /* font size */
   --fz-lg: 36px;
