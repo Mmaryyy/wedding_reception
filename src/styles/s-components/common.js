@@ -27,6 +27,7 @@ export const ContentWrapper = styled.section`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  box-shadow: -1px -1px var(--white), 1px 1px var(--black-100);
 `
 
 // contents
