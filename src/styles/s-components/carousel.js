@@ -6,6 +6,8 @@ export const Container = styled.div`
   margin: 10px auto;
   overflow: hidden;
   position: relative;
+  border-radius: 3px;
+  box-shadow: -1px -1px var(--black-100), 1px 1px var(--black-200);
 `
 
 export const ImageBox = styled.ul`
