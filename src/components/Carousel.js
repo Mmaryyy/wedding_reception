@@ -20,28 +20,29 @@ const Carousel = ({ imgSource }) => {
 
   // 브라우저 마우스 이벤트
   const [mouseDownClientX, setMouseDownClientX] = useState(0)
-  // const [mouseDownClientY, setMouseDownClientY] = useState(0)
   const [mouseUpClientX, setMouseUpClientX] = useState(0)
-  // const [mouseUpClientY, setMouseUpClientY] = useState(0)
+  const onMouseDown = (e) => {
+    setMouseDownClientX(e.clientX)
+  }
+  const onMouseUp = (e) => {
+    setMouseUpClientX(e.clientX)
+  }
 
   // 모바일기기 터치 이벤트
   const [touchedX, setTouchedX] = useState(0)
 
-  const onMouseDown = (e) => {
-    console.log('mouseDown', e.clientX)
-    setMouseDownClientX(e.clientX)
-  }
-  const onMouseUp = (e) => {
-    console.log('mouseUp', e.clientX)
-    setMouseUpClientX(e.clientX)
-  }
   const onTouchStart = (e) => {
-    setTouchedX(e.clientX)
+    setTouchedX(e.changedTouches[0].pageX)
   }
   const onTouchEnd = (e) => {
-    console.log('touchEvent', e.changedTouches)
-    const direction = touchedX - e.changedTouches[0].pageX
+    if (touchedX === e.changedTouches[0].pageX) return
+    if (touchedX - e.changedTouches[0].pageX < 0) {
+      return handlePrevSlide()
+    }
+    return handleNextSlide()
   }
+
+  // 슬라이드 이동 이벤트
   const handlePrevSlide = () => {
     if (count - 1 >= 0) return setCount((prev) => prev - 1)
     return setCount(TOTAL_IMG)
@@ -67,9 +68,8 @@ const Carousel = ({ imgSource }) => {
   useEffect(() => {
     // 1. mouse drag event가 발생한다 === mouseDownClientX
     // 2. mouseDown - mouseUp < 0 왼쪽, 그렇지 않으면 오른쪽
-    const direction = mouseDownClientX - mouseUpClientX < 0 ? 'left' : 'right'
-    console.log('방향', direction)
-    if (direction === 'left') {
+    if (mouseDownClientX === mouseUpClientX) return
+    if (mouseDownClientX - mouseUpClientX < 0) {
       return handlePrevSlide()
     }
     return handleNextSlide()
