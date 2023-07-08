@@ -31,7 +31,6 @@ export const ControllContainer = styled.div`
   position: absolute;
   width: 100%;
   height: 100%;
-  /* background-color: #fff; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -47,9 +46,9 @@ export const BtnWrapper = styled.div`
 `
 
 export const SlideBtn = styled.button`
-  width: 40px;
-  height: 50px;
-  font-size: var(--fz-lg);
+  width: 0.5em;
+  height: 0.5em;
+  font-size: 3em;
   color: var(--white-bg);
   cursor: pointer;
   &:active {
@@ -58,7 +57,7 @@ export const SlideBtn = styled.button`
   @media (max-width: 720px) {
     width: 0.5em;
     height: 0.5em;
-    font-size: var(--fz-big);
+    font-size: 3em;
   }
   @media (hover: hover) {
     &:hover {

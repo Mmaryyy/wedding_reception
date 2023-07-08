@@ -11,7 +11,12 @@ export const OuterWrapper = styled.main`
   justify-content: center;
   align-items: center;
 `
-
+export const InnerWrapper = styled.section`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`
 export const ContentWrapper = styled.section`
   width: 90%;
   background-color: var(--white-bg);
@@ -35,7 +40,11 @@ export const DivisionLine = styled.hr`
 export const Title = styled.h1`
   font-family: var(--font-mapo);
   font-size: var(--fz-lg);
+  text-align: center;
   margin: ${(props) => props.margin || '0px'};
+  color: var(--gold-100);
+  opacity: 0.6;
+  text-shadow: -1px -1px var(--black-200), 1px 1px var(--white);
   @media (max-width: 720px) {
     font-size: var(--fz-big);
   }
