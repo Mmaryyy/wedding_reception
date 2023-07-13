@@ -42,7 +42,7 @@ export const Title = styled.h1`
   font-family: var(--font-mapo);
   font-size: var(--fz-lg);
   text-align: center;
-  margin: ${(props) => props.margin || '0px'};
+  margin: ${(props) => props.margin || '40px 0'};
   color: var(--gold-100);
   opacity: 0.6;
   text-shadow: -1px -1px var(--black-200), 1px 1px var(--white);
