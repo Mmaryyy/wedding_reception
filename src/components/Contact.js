@@ -1,8 +1,8 @@
-/* eslint-disable */
 import React from 'react'
 import { Content } from '../styles/s-components/common'
 import { ContactWrapper, DropdownWrapper } from '../styles/s-components/contact'
 import Dropdown from './Dropdown'
+
 const Contact = () => {
   const daddy = {
     name: '이 춘 홍',
@@ -16,6 +16,7 @@ const Contact = () => {
     bank: '국민',
     account: '766101-01-616129',
   }
+
   return (
     <>
       <ContactWrapper className="daddy">

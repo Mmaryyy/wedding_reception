@@ -23,7 +23,10 @@ const Dropdown = ({ isForCalling, info }) => {
   }
   const { name, phoneNumber, bank, account } = info
   return (
-    <DropdownContainer className="wrapper">
+    <DropdownContainer
+      className={`wrapper ${isOpen ? 'clicked' : null}`}
+      isOpen={isOpen}
+    >
       <DropdownBtn className="title" isOpen={isOpen} onClick={dropHandler}>
         {isForCalling ? '축하 인사 전하기' : '마음 전하실 곳'}
         <FontAwesomeIcon
@@ -51,12 +54,12 @@ const Dropdown = ({ isForCalling, info }) => {
         </DropdownMenuWrapper>
         <DropdownMenuWrapper>
           {isForCalling ? (
-            <DropdownMenu href={`tel:${phoneNumber}`} isLast={true}>
+            <DropdownMenu href={`tel:${phoneNumber}`}>
               <FontAwesomeIcon icon={faPhone} style={{ marginRight: '10px' }} />
               전화하기
             </DropdownMenu>
           ) : (
-            <DropdownMenu href={`sms:${1087513545}`} isLast={true}>
+            <DropdownMenu href={`sms:${1087513545}`}>
               <FontAwesomeIcon
                 icon={faCommentDollar}
                 style={{ marginRight: '10px' }}

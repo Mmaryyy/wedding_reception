@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom'
 
 export const DropdownContainer = styled.div`
   width: 40%;
-  margin: 10px 0;
+  position: relative;
+  border-radius: 5px;
   > * {
     color: var(--black-200);
   }
@@ -13,9 +14,14 @@ export const DropdownBtn = styled.button`
   width: 100%;
   height: 2em;
   color: var(--gold-400);
+  z-index: 100;
   font-weight: var(--fw-bold);
   background-color: var(--gold-100);
   border-radius: ${(props) => (props.isOpen ? '5px 5px 0 0' : '5px')};
+  box-shadow: ${(props) =>
+    props.isOpen
+      ? '-1px -1px var(--white), 1px 0px var(--black-shadow)'
+      : '-1px -1px var(--white), 1px 1px var(--black-shadow)'};
   transition: all 0.3s ease-in-out;
   cursor: pointer;
   > svg {
@@ -24,10 +30,26 @@ export const DropdownBtn = styled.button`
 `
 
 export const DropdownMenuContainer = styled.ul`
+  position: relative;
   width: 100%;
   transform: ${(props) => (props.isOpen ? 'scaleY(1)' : 'scaleY(0)')};
+  z-index: -100;
   transform-origin: 0px 0px;
-  transition: all 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+  border-radius: 5px;
+  &::after {
+    content: ' ';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 0 0 5px 5px;
+    /* z-index: -100; */
+    top: 0;
+    left: 0;
+    box-shadow: -1px -1px var(--white), 1px 1px var(--black-shadow);
+    opacity: ${(props) => (props.isOpen ? 1 : 0)};
+    transition: opacity 0.3s ease-in-out;
+  }
 `
 
 export const DropdownMenuWrapper = styled.li`
