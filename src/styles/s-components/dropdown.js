@@ -3,16 +3,24 @@ import { Link } from 'react-router-dom'
 
 export const DropdownContainer = styled.div`
   width: 40%;
+  margin: 10px 0;
+  > * {
+    color: var(--black-200);
+  }
 `
 
 export const DropdownBtn = styled.button`
   width: 100%;
   height: 2em;
-  background-color: var(--pink-100);
+  color: var(--gold-400);
+  font-weight: var(--fw-bold);
+  background-color: var(--gold-100);
   border-radius: ${(props) => (props.isOpen ? '5px 5px 0 0' : '5px')};
   transition: all 0.3s ease-in-out;
-  color: var(--white);
   cursor: pointer;
+  > svg {
+    transition: all 0.3s ease-in-out;
+  }
 `
 
 export const DropdownMenuContainer = styled.ul`
@@ -32,6 +40,7 @@ export const DropdownMenu = styled(Link)`
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 20px;
   width: 100%;
   padding: 0.5em;
   background-color: var(--white);
@@ -39,5 +48,8 @@ export const DropdownMenu = styled(Link)`
   border-top: 0.5px solid var(--black-100);
   &:active {
     background-color: var(--black-100);
+  }
+  @media screen and (max-width: 720px) {
+    font-size: var(--fz-sm);
   }
 `
