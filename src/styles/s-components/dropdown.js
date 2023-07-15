@@ -2,7 +2,7 @@ import { styled } from 'styled-components'
 import { Link } from 'react-router-dom'
 
 export const DropdownContainer = styled.div`
-  width: 40%;
+  min-width: 40%;
   position: relative;
   border-radius: 5px;
   > * {
@@ -14,7 +14,7 @@ export const DropdownBtn = styled.button`
   width: 100%;
   height: 2em;
   color: var(--gold-400);
-  z-index: 100;
+  padding: 5px 10px;
   font-weight: var(--fw-bold);
   background-color: var(--gold-100);
   border-radius: ${(props) => (props.isOpen ? '5px 5px 0 0' : '5px')};
@@ -43,7 +43,6 @@ export const DropdownMenuContainer = styled.ul`
     width: 100%;
     height: 100%;
     border-radius: 0 0 5px 5px;
-    /* z-index: -100; */
     top: 0;
     left: 0;
     box-shadow: -1px -1px var(--white), 1px 1px var(--black-shadow);
