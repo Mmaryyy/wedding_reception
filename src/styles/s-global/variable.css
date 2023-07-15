@@ -26,17 +26,14 @@
   --gold-100: #d8d0c5;
   --gold-200: #d9c4a9;
   --gold-300: #c0b283;
+  --gold-400: #6f674b;
   --gold-main: #d9b061;
-
-  --ivory: #eddbcd;
-  --pink-100: #d9aa90;
-  --pink-200: #a65e46;
 
   --white: #f4f4f4;
   --white-bg: #f4f4f490;
 
   --black-100: #dee2e5;
-  --black-200: #949ea6;
+  --black-200: #6f757a;
   --black-300: #414141;
   --black-400: #404a42;
   --modalBack: rgba(34, 34, 34, 0.7);
