@@ -52,9 +52,13 @@ export const Title = styled.h1`
 `
 
 export const Content = styled.p`
-  font-size: ${(props) => props.fz || `var(--fz-base)`};
   line-height: 1.8;
-  @media (max-width: 720px) {
-    font-size: var(--fz-base);
+  &.strong {
+    font-weight: var(--fw-bold);
+  }
+  @media screen and (max-width: 720px) {
+    &.strong {
+      font-size: 18px;
+    }
   }
 `
