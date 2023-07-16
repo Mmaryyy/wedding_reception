@@ -1,5 +1,5 @@
 /* eslint-disable */
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faChevronDown,
@@ -21,7 +21,21 @@ const Dropdown = ({ isForCalling, info }) => {
   const dropHandler = () => {
     return setIsOpen(!isOpen)
   }
-  const { name, phoneNumber, bank, account } = info
+  const { phoneNumber, bank, account } = info
+  const copyContent = `${bank} ${account}`
+  const copyHandler = () => {
+    try {
+      navigator.clipboard.writeText(copyContent)
+    } catch (error) {
+      if (error) {
+        const clipboard = new ClipboardJS('.copy')
+        clipboard.on('success', (e) => {
+          e.clearSelection()
+        })
+        clipboard.on('error', (e) => {})
+      }
+    }
+  }
   return (
     <DropdownContainer
       className={`wrapper ${isOpen ? 'clicked' : null}`}
@@ -46,13 +60,18 @@ const Dropdown = ({ isForCalling, info }) => {
               문자하기
             </DropdownMenu>
           ) : (
-            <DropdownMenu href={`sms:${phoneNumber}`}>
+            <DropdownMenu
+              href={`sms:${phoneNumber}`}
+              onClick={copyHandler}
+              className="copy"
+              data-clipboard-text={`${copyContent}`}
+            >
               <FontAwesomeIcon icon={faPaste} style={{ marginRight: '10px' }} />
               계좌번호 복사
             </DropdownMenu>
           )}
         </DropdownMenuWrapper>
-        <DropdownMenuWrapper>
+        <DropdownMenuWrapper isLast={true}>
           {isForCalling ? (
             <DropdownMenu href={`tel:${phoneNumber}`}>
               <FontAwesomeIcon icon={faPhone} style={{ marginRight: '10px' }} />
