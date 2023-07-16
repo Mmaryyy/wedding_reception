@@ -53,6 +53,7 @@ export const Title = styled.h1`
 
 export const Content = styled.p`
   line-height: 1.8;
+  color: ${(props) => props.color || 'inherit'};
   &.strong {
     font-weight: var(--fw-bold);
   }
