@@ -55,11 +55,11 @@ export const DropdownMenuContainer = styled.ul`
 export const DropdownMenuWrapper = styled.li`
   position: relative;
   width: 100%;
+  height: 2em;
   display: flex;
   justify-content: center;
   z-index: 1;
   background-color: var(--white);
-  padding: 0.5em;
   border-radius: ${(props) => (props.isLast ? '0 0 5px 5px' : null)};
   border-top: 0.5px solid var(--black-100);
   &:active {
@@ -71,9 +71,18 @@ export const DropdownMenu = styled(Link)`
   display: flex;
   justify-content: center;
   align-items: center;
+  color: inherit;
   font-size: 20px;
-  width: 100%;
+  cursor: pointer;
   @media screen and (max-width: 720px) {
     font-size: var(--fz-sm);
   }
+`
+
+export const PayLogo = styled.img`
+  width: 5em;
+  background-color: #fbee00;
+  padding: 5px;
+  border-radius: 5px;
+  margin-right: 5px;
 `

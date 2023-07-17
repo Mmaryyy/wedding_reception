@@ -1,12 +1,11 @@
 /* eslint-disable */
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faChevronDown,
   faComments,
   faPhone,
   faPaste,
-  faCommentDollar,
 } from '@fortawesome/free-solid-svg-icons'
 import {
   DropdownContainer,
@@ -14,6 +13,7 @@ import {
   DropdownMenuContainer,
   DropdownMenuWrapper,
   DropdownMenu,
+  PayLogo,
 } from '../styles/s-components/dropdown'
 
 const Dropdown = ({ isForCalling, info }) => {
@@ -21,9 +21,9 @@ const Dropdown = ({ isForCalling, info }) => {
   const dropHandler = () => {
     return setIsOpen(!isOpen)
   }
-  const { phoneNumber, bank, account } = info
+  const { parent, phoneNumber, bank, account } = info
   const copyContent = `${bank} ${account}`
-  const copyHandler = () => {
+  const copyHandler = async () => {
     try {
       navigator.clipboard.writeText(copyContent)
     } catch (error) {
@@ -52,7 +52,7 @@ const Dropdown = ({ isForCalling, info }) => {
       <DropdownMenuContainer className="menu_wrapper" isOpen={isOpen}>
         <DropdownMenuWrapper>
           {isForCalling ? (
-            <DropdownMenu href={`sms:${phoneNumber}`}>
+            <DropdownMenu to={`sms:${phoneNumber}`}>
               <FontAwesomeIcon
                 icon={faComments}
                 style={{ marginRight: '10px' }}
@@ -61,7 +61,7 @@ const Dropdown = ({ isForCalling, info }) => {
             </DropdownMenu>
           ) : (
             <DropdownMenu
-              href={`sms:${phoneNumber}`}
+              as={'button'}
               onClick={copyHandler}
               className="copy"
               data-clipboard-text={`${copyContent}`}
@@ -73,18 +73,23 @@ const Dropdown = ({ isForCalling, info }) => {
         </DropdownMenuWrapper>
         <DropdownMenuWrapper isLast={true}>
           {isForCalling ? (
-            <DropdownMenu href={`tel:${phoneNumber}`}>
+            <DropdownMenu to={`tel:${phoneNumber}`}>
               <FontAwesomeIcon icon={faPhone} style={{ marginRight: '10px' }} />
               전화하기
             </DropdownMenu>
-          ) : (
-            <DropdownMenu href={`sms:${1087513545}`}>
-              <FontAwesomeIcon
-                icon={faCommentDollar}
-                style={{ marginRight: '10px' }}
+          ) : parent === 'mommy' ? (
+            <DropdownMenu
+              to="kakaotalk://kakaopay/money/to/qr?qr_code=FL6gWfIsD"
+              target="_blank"
+            >
+              <PayLogo
+                src="/assets/kakaopay_CI_logotype.png"
+                alt="로고 이미지"
               />
-              카카오페이 송금
+              송금
             </DropdownMenu>
+          ) : (
+            <DropdownMenu />
           )}
         </DropdownMenuWrapper>
       </DropdownMenuContainer>
