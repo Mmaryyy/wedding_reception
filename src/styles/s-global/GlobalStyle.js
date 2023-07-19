@@ -52,8 +52,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background-image: url("/assets/bg.png");
-    background-size: cover;
+    background-color: var(--bg-outer);
     overflow-x: hidden;
     font-size: var(--fz-big);
     @media screen and (max-width: 720px) {
