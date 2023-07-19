@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
+import { debounce } from 'lodash'
 import {
-  Container,
+  CarouselContainer,
   ImageBox,
-  ImageList,
   Img,
   ControllContainer,
   BtnWrapper,
@@ -13,9 +13,27 @@ import {
 
 const Carousel = ({ imgSource }) => {
   const TOTAL_IMG = imgSource.length - 1
-  const IMG_WIDTH = 90
-
+  // const IMG_WIDTH = useRef(null)
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth)
+  const [imgWidth, setImgWidth] = useState(0)
   const [count, setCount] = useState(0)
+  const ref = useRef(null)
+
+  const handleResize = debounce(() => {
+    setWindowWidth(window.innerWidth)
+  }, 300)
+
+  useEffect(() => {
+    window.addEventListener('resize', handleResize)
+    return () => {
+      // cleanUp
+      window.removeEventListener('resize', handleResize)
+    }
+  })
+  // 렌더링될때 최상위 div의 너비 가져오기
+  useEffect(() => {
+    setImgWidth(ref.current.clientWidth)
+  }, [windowWidth])
 
   // 브라우저 마우스 이벤트
   const [mouseDownClientX, setMouseDownClientX] = useState(0)
@@ -75,17 +93,18 @@ const Carousel = ({ imgSource }) => {
   }, [mouseUpClientX])
 
   return (
-    <Container
+    <CarouselContainer
       onMouseDown={onMouseDown}
       onMouseUp={onMouseUp}
       onTouchStart={onTouchStart}
       onTouchEnd={onTouchEnd}
+      ref={ref}
     >
-      <ImageBox className="img_box" count={count} imgWidth={IMG_WIDTH}>
+      <ImageBox className="img_box" count={count} imgWidth={imgWidth}>
         {imgSource.map((el, idx) => (
-          <ImageList className="img" key={idx}>
-            <Img src={el} alt={`couple${idx + 1}`} />
-          </ImageList>
+          <li className="img" key={idx}>
+            <Img src={el} alt={`couple${idx + 1}`} width={imgWidth} />
+          </li>
         ))}
       </ImageBox>
       <ControllContainer className="controll">
@@ -107,7 +126,7 @@ const Carousel = ({ imgSource }) => {
           ))}
         </BulletContainer>
       </ControllContainer>
-    </Container>
+    </CarouselContainer>
   )
 }
 
