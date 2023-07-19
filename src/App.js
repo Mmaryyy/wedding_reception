@@ -8,7 +8,7 @@ import { OuterWrapper } from './styles/s-components/common'
 import Invite from './components/Invite'
 import Intro from './components/Intro'
 import Gallery from './components/Gallery'
-
+import Greeting from './components/Greeting'
 function App() {
   return (
     <>
@@ -19,6 +19,7 @@ function App() {
             <Invite />
             <Intro />
             <Gallery />
+            <Greeting />
           </OuterWrapper>
         </StyleSheetManager>
       </BrowserRouter>
