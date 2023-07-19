@@ -1,6 +1,6 @@
-/* eslint-disable */
 import React, { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { CopyToClipboard } from 'react-copy-to-clipboard/src'
 import {
   faChevronDown,
   faComments,
@@ -23,19 +23,7 @@ const Dropdown = ({ isForCalling, info }) => {
   }
   const { parent, phoneNumber, bank, account } = info
   const copyContent = `${bank} ${account}`
-  const copyHandler = async () => {
-    try {
-      navigator.clipboard.writeText(copyContent)
-    } catch (error) {
-      if (error) {
-        const clipboard = new ClipboardJS('.copy')
-        clipboard.on('success', (e) => {
-          e.clearSelection()
-        })
-        clipboard.on('error', (e) => {})
-      }
-    }
-  }
+
   return (
     <DropdownContainer
       className={`wrapper ${isOpen ? 'clicked' : null}`}
@@ -60,15 +48,20 @@ const Dropdown = ({ isForCalling, info }) => {
               문자하기
             </DropdownMenu>
           ) : (
-            <DropdownMenu
-              as={'button'}
-              onClick={copyHandler}
-              className="copy"
-              data-clipboard-text={`${copyContent}`}
+            <CopyToClipboard
+              text={copyContent}
+              // onCopy={() => {
+              //   alert('복사되었습니다.')
+              // }}
             >
-              <FontAwesomeIcon icon={faPaste} style={{ marginRight: '10px' }} />
-              계좌번호 복사
-            </DropdownMenu>
+              <DropdownMenu as={'button'} className="copy">
+                <FontAwesomeIcon
+                  icon={faPaste}
+                  style={{ marginRight: '10px' }}
+                />
+                계좌번호 복사
+              </DropdownMenu>
+            </CopyToClipboard>
           )}
         </DropdownMenuWrapper>
         <DropdownMenuWrapper isLast={true}>
