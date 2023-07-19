@@ -2,12 +2,14 @@ import { styled } from 'styled-components'
 import { Link } from 'react-router-dom'
 
 export const DropdownContainer = styled.div`
-  min-width: 40%;
-  height: 100%;
-  border-radius: 5px;
+  min-width: 45%;
   margin: 20px 0;
   > * {
     color: var(--black-200);
+    font-size: 20px;
+    @media screen and (max-width: 720px) {
+      font-size: var(--fz-sm);
+    }
   }
 `
 
@@ -15,7 +17,6 @@ export const DropdownBtn = styled.button`
   width: 100%;
   height: 2em;
   color: var(--gold-400);
-  padding: 5px 10px;
   font-weight: var(--fw-bold);
   background-color: var(--gold-100);
   border-radius: ${(props) => (props.isOpen ? '5px 5px 0 0' : '5px')};
@@ -68,15 +69,12 @@ export const DropdownMenuWrapper = styled.li`
 `
 
 export const DropdownMenu = styled(Link)`
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   color: inherit;
-  font-size: 20px;
   cursor: pointer;
-  @media screen and (max-width: 720px) {
-    font-size: var(--fz-sm);
-  }
 `
 
 export const PayLogo = styled.img`
