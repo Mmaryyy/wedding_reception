@@ -81,7 +81,6 @@ export const DropdownMenu = styled(Link)`
 
 export const PayLogo = styled.img`
   width: 5em;
-  background-color: #fbee00;
   padding: 5px;
   border-radius: 5px;
   margin-right: 5px;
