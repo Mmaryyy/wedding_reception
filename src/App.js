@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react'
 import isPropValid from '@emotion/is-prop-valid'
 import { StyleSheetManager } from 'styled-components'
@@ -9,6 +10,9 @@ import Invite from './components/Invite'
 import Intro from './components/Intro'
 import Gallery from './components/Gallery'
 import Greeting from './components/Greeting'
+import Guide from './components/Guide'
+import Map from './components/Map'
+
 function App() {
   return (
     <>
@@ -20,6 +24,8 @@ function App() {
             <Intro />
             <Gallery />
             <Greeting />
+            {/* <Map /> */}
+            <Guide />
           </OuterWrapper>
         </StyleSheetManager>
       </BrowserRouter>
