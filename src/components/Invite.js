@@ -18,7 +18,7 @@ const Invite = () => {
 
   return (
     <ContentWrapper padding={'50px 0'}>
-      <Title>피로연에 초대합니다.</Title>
+      <Title margin={'0'}>피로연에 초대합니다.</Title>
       <DivisionLine />
       {comments.map((el, idx) => {
         return (

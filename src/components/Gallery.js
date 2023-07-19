@@ -9,7 +9,7 @@ const Gallery = () => {
   ]
   return (
     <InnerWrapper className="gallery">
-      <Title margin={'20px 0'}>G a l l e r y</Title>
+      <Title>G a l l e r y</Title>
       <Carousel imgSource={IMG} />
     </InnerWrapper>
   )

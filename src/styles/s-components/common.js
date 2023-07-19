@@ -42,7 +42,7 @@ export const Title = styled.h1`
   font-family: var(--font-mapo);
   font-size: var(--fz-lg);
   text-align: center;
-  margin: ${(props) => props.margin || '0px'};
+  margin: ${(props) => props.margin || '40px 0'};
   color: var(--gold-100);
   opacity: 0.6;
   text-shadow: -1px -1px var(--black-200), 1px 1px var(--white);
@@ -52,9 +52,14 @@ export const Title = styled.h1`
 `
 
 export const Content = styled.p`
-  font-size: ${(props) => props.fz || `var(--fz-base)`};
   line-height: 1.8;
-  @media (max-width: 720px) {
-    font-size: var(--fz-base);
+  color: ${(props) => props.color || 'inherit'};
+  &.strong {
+    font-weight: var(--fw-bold);
+  }
+  @media screen and (max-width: 720px) {
+    &.strong {
+      font-size: 18px;
+    }
   }
 `
