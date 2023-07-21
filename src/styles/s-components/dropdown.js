@@ -75,6 +75,9 @@ export const DropdownMenu = styled(Link)`
   align-items: center;
   color: inherit;
   cursor: pointer;
+  > * {
+    color: inherit;
+  }
 `
 
 export const PayLogo = styled.img`

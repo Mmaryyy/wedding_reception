@@ -5,6 +5,7 @@ import '../s-global/variable.css'
 export const OuterWrapper = styled.main`
   width: 100%;
   padding: 20px;
+  position: relative;
 `
 
 export const InnerWrapper = styled.div`
