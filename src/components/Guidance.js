@@ -1,13 +1,15 @@
-import React from 'react'
 import { GuideContainer } from '../styles/s-components/guide'
+import Map from './Map'
+import React from 'react'
 import { Title } from '../styles/s-components/common'
 
-const Guide = () => {
+const Guidance = () => {
   return (
-    <GuideContainer>
+    <GuideContainer className="guidance">
       <Title>오 시 는 길</Title>
+      <Map />
     </GuideContainer>
   )
 }
 
-export default Guide
+export default Guidance
