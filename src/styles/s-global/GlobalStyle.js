@@ -50,13 +50,19 @@ export const GlobalStyle = createGlobalStyle`
   a:active {
     background: none; color: inherit;
   }
-
+  #root {
+    width: 100%;
+    max-width: 720px;
+  }
   body {
-    background-image: url("/assets/bg.png");
-    background-size: cover;
+    display: flex;
+    justify-content: center;
+    background-color: var(--bg-outer);
     overflow-x: hidden;
-    /* line-height: 1; */
-    font-size: var(--fz-base);
+    font-size: var(--fz-big);
+    @media screen and (max-width: 720px) {
+      font-size: var(--fz-base)
+    }
     color: var(--black-400);
     font-family: var(--font-nanum),
     -apple-system, 
