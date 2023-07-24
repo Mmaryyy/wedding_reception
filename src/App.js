@@ -1,18 +1,21 @@
-import React from 'react'
-import isPropValid from '@emotion/is-prop-valid'
-import { StyleSheetManager } from 'styled-components'
-import { BrowserRouter } from 'react-router-dom'
 import './styles/s-global/variable.css'
-import { GlobalStyle } from './styles/s-global/GlobalStyle'
+
 import {
-  InnerWrapper,
   InnerBox,
+  InnerWrapper,
   OuterWrapper,
 } from './styles/s-components/common'
-import Invite from './components/Invite'
-import Intro from './components/Intro'
+
+import { BrowserRouter } from 'react-router-dom'
 import Gallery from './components/Gallery'
+import { GlobalStyle } from './styles/s-global/GlobalStyle'
 import Greeting from './components/Greeting'
+import Intro from './components/Intro'
+import Invite from './components/Invite'
+import React from 'react'
+import { StyleSheetManager } from 'styled-components'
+import isPropValid from '@emotion/is-prop-valid'
+
 function App() {
   return (
     <>
