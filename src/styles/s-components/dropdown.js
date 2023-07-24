@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 export const DropdownContainer = styled.div`
-  min-width: 40%;
+  min-width: 48%;
   height: 6em;
   margin: 10px 0;
   color: var(--black-200);
