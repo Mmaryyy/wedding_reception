@@ -1,6 +1,6 @@
 import { ContactWrapper, DropdownWrapper } from '../styles/s-components/contact'
+import { Content, InnerContainer, Title } from '../styles/s-components/common'
 
-import { Content } from '../styles/s-components/common'
 import Dropdown from './common/Dropdown'
 import React from 'react'
 import { useSelector } from 'react-redux'
@@ -11,7 +11,8 @@ const Contact = () => {
   const dropdownContent = ['forCall', 'forPay']
 
   return (
-    <>
+    <InnerContainer>
+      <Title>C o n t a c t</Title>
       {count.map((el, idx) => {
         const parent = parents[el]
         return (
@@ -27,7 +28,7 @@ const Contact = () => {
           </ContactWrapper>
         )
       })}
-    </>
+    </InnerContainer>
   )
 }
 
