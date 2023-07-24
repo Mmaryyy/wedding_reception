@@ -1,7 +1,7 @@
 import {
   DropdownBtn,
   DropdownContainer,
-  DropdownMenuContainer,
+  DropdownMenuList,
 } from '../../styles/s-components/dropdown'
 import React, { useState } from 'react'
 
@@ -9,28 +9,25 @@ import DropMenu from './DropMenu'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 
-const Dropdown = ({ isCall, parent }) => {
-  const [isOpen, setIsOpen] = useState(true)
-  const dropHandler = () => {
-    return setIsOpen(!isOpen)
+const Dropdown = ({ type, parent }) => {
+  const [dropIsOpen, setDropIsOpen] = useState(true)
+  const onClickDropdownBtn = () => {
+    setDropIsOpen(!dropIsOpen)
   }
-
+  const dropMenu = new Array(2).fill(0)
   return (
-    <DropdownContainer
-      className={`wrapper ${isOpen ? 'clicked' : null}`}
-      isOpen={isOpen}
-    >
-      <DropdownBtn className="title" isOpen={isOpen} onClick={dropHandler}>
-        {isCall ? '축하 인사 전하기' : '마음 전하실 곳'}
-        <FontAwesomeIcon
-          icon={faChevronDown}
-          rotation={isOpen ? 0 : 180}
-          style={{ color: 'var(--pink-100)', marginLeft: '10px' }}
-        />
+    <DropdownContainer>
+      <DropdownBtn onClick={onClickDropdownBtn} isOpen={dropIsOpen}>
+        {type === 'forCall' ? '축하 인사 전하기 ' : '마음 전하실 곳 '}
+        <FontAwesomeIcon icon={faChevronDown} rotation={dropIsOpen ? 0 : 180} />
       </DropdownBtn>
-      <DropdownMenuContainer className="menu_wrapper" isOpen={isOpen}>
-        <DropMenu isCall={isCall} parent={parent} />
-      </DropdownMenuContainer>
+      <DropdownMenuList isOpen={dropIsOpen}>
+        {dropMenu.map((el, idx) => {
+          return (
+            <DropMenu menuType={type} idx={idx} key={idx} parent={parent} />
+          )
+        })}
+      </DropdownMenuList>
     </DropdownContainer>
   )
 }

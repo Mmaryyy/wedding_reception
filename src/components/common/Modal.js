@@ -1,4 +1,3 @@
-/* eslint-disable */
 import {
   ModalBack,
   ModalBtn,
@@ -7,31 +6,54 @@ import {
   ModalContent,
   ModalContentWrapper,
 } from '../../styles/s-components/modal'
-import { useDispatch, useSelector } from 'react-redux'
+import React, { useEffect } from 'react'
 
-import React from 'react'
-import { closeModal } from '../../store/modalSlice'
+const Modal = ({ modalContent, callback, modalHandler }) => {
+  const disableScroll = () => {
+    document.body.style.cssText = `
+      top: -${window.scrollY}px;
+      overflow-y: hidden;
+      width: 100%;
+    `
+  }
+  const enableScorll = () => {
+    const scrollY = document.body.style.top
+    document.body.style.cssText = ``
+    window.scrollTo(0, parseInt(scrollY || '0', 10) * -1)
+  }
 
-const Modal = () => {
-  const dispatch = useDispatch()
-  const { modalContent } = useSelector((state) => state.modal)
+  useEffect(() => {
+    disableScroll()
+    return () => enableScorll()
+  }, [])
+
   const closeModalHandler = (e) => {
     e.stopPropagation()
-    dispatch(closeModal())
+    modalHandler()
   }
+
+  const confirmModalHandler = (e) => {
+    closeModalHandler(e)
+    setTimeout(() => callback(), 500)
+  }
+
   return (
-    <>
-      <ModalContainer>
-        <ModalBack onClick={closeModalHandler} />
-        <ModalContentWrapper>
-          <ModalContent>{modalContent}</ModalContent>
-          <ModalBtnWrapper>
+    <ModalContainer className="modal_container">
+      <ModalBack onClick={closeModalHandler} className="modal_back" />
+      <ModalContentWrapper>
+        <ModalContent>{modalContent}</ModalContent>
+        <ModalBtnWrapper callback={callback}>
+          {callback ? (
             <ModalBtn onClick={closeModalHandler}>취소</ModalBtn>
-            <ModalBtn onClick={closeModalHandler}>확인</ModalBtn>
-          </ModalBtnWrapper>
-        </ModalContentWrapper>
-      </ModalContainer>
-    </>
+          ) : null}
+          <ModalBtn
+            onClick={callback ? confirmModalHandler : closeModalHandler}
+          >
+            확인
+          </ModalBtn>
+        </ModalBtnWrapper>
+      </ModalContentWrapper>
+    </ModalContainer>
   )
 }
 

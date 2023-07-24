@@ -1,21 +1,17 @@
-import { styled } from 'styled-components'
 import { Link } from 'react-router-dom'
+import styled from 'styled-components'
 
 export const DropdownContainer = styled.div`
-  min-width: 45%;
-  margin: 20px 0;
-  > * {
-    color: var(--black-200);
-    font-size: 20px;
-    @media screen and (max-width: 720px) {
-      font-size: var(--fz-sm);
-    }
-  }
+  min-width: 40%;
+  height: 6em;
+  margin: 10px 0;
+  color: var(--black-200);
 `
 
 export const DropdownBtn = styled.button`
   width: 100%;
   height: 2em;
+  padding: 0 5px;
   color: var(--gold-400);
   font-weight: var(--fw-bold);
   background-color: var(--gold-100);
@@ -31,53 +27,37 @@ export const DropdownBtn = styled.button`
   }
 `
 
-export const DropdownMenuContainer = styled.ul`
-  position: relative;
+export const DropdownMenuList = styled.ul`
+  display: flex;
+  flex-direction: column;
   width: 100%;
-  transform: ${(props) => (props.isOpen ? 'scaleY(1)' : 'scaleY(0)')};
-  transform-origin: 0px 0px;
-  transition: transform 0.3s ease-in-out;
-  border-radius: 5px;
-  &::after {
-    content: ' ';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    border-radius: 0 0 5px 5px;
-    top: 0;
-    left: 0;
-    box-shadow: -1px 0px var(--white), 1px 1px var(--black-shadow);
-    opacity: ${(props) => (props.isOpen ? 1 : 0)};
-    transition: opacity 0.3s ease-in-out;
-  }
+  height: ${(props) => (props.isOpen ? '4em' : '0px')};
+  border-radius: 0 0 5px 5px;
+  overflow: hidden;
+  box-shadow: -1px 0px var(--white), 1px 1px var(--black-shadow);
+  transition: height ease-in-out 0.3s;
 `
 
-export const DropdownMenuWrapper = styled.li`
-  position: relative;
+// dropdown menu
+export const DropdownMenuItem = styled.li`
   width: 100%;
   height: 2em;
+  background-color: var(--white);
   display: flex;
   justify-content: center;
-  z-index: 1;
-  background-color: var(--white);
-  border-radius: ${(props) => (props.isLast ? '0 0 5px 5px' : null)};
-  border-top: 0.5px solid var(--black-100);
+  border-top: 0.5px solid white;
   &:active {
     background-color: var(--black-100);
   }
 `
 
-export const DropdownMenu = styled(Link)`
+export const DropdownLink = styled(Link)`
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   color: inherit;
   cursor: pointer;
-  > * {
-    color: inherit;
-  }
 `
 
 export const PayLogo = styled.img`
