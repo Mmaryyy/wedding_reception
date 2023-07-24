@@ -15,7 +15,7 @@ const Contact = () => {
       {count.map((el, idx) => {
         const parent = parents[el]
         return (
-          <ContactWrapper className={`${el}`} key={idx}>
+          <ContactWrapper className={`${el}_dropdown`} key={idx}>
             <Content className="strong" color="var(--gold-400)">
               {parent.name}
             </Content>
