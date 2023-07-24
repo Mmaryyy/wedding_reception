@@ -23,6 +23,9 @@
   /* color */
   --navy: #192231;
 
+  --bg-outer: #d7dec7;
+  --bg-inner: #f8f8f8;
+
   --gold-100: #d8d0c5;
   --gold-200: #d9c4a9;
   --gold-300: #c0b283;

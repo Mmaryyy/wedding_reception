@@ -1,24 +1,46 @@
-import styled from 'styled-components'
 import '../s-global/variable.css'
 
-// layout
+import styled from 'styled-components'
+
+// layout - outer background
 export const OuterWrapper = styled.main`
   width: 100%;
-  overflow: auto;
+  padding: 20px;
+  position: relative;
+`
+
+export const InnerWrapper = styled.div`
+  width: 100%;
+  border-radius: 10px;
+  background: var(--bg-inner);
   display: flex;
-  padding: 50px 15px;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+`
+
+export const InnerBox = styled.div`
+  width: 100%;
+  background: var(--bg-inner);
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 8px;
+  border-radius: 10px;
+  border: 1px solid var(--black-200);
 `
-export const InnerWrapper = styled.section`
+
+// layout - contents
+export const InnerContainer = styled.section`
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
 `
+
 export const ContentWrapper = styled.section`
-  width: 90%;
+  width: 100%;
   background-color: var(--white-bg);
   padding: ${(props) => props.padding || '0'};
   margin: 10px;
@@ -38,6 +60,7 @@ export const DivisionLine = styled.hr`
   border: 0;
   margin: 30px;
 `
+
 export const Title = styled.h1`
   font-family: var(--font-mapo);
   font-size: var(--fz-lg);

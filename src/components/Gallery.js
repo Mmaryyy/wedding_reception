@@ -1,17 +1,15 @@
 import React from 'react'
-import { InnerWrapper, Title } from '../styles/s-components/common'
+import { InnerContainer, Title } from '../styles/s-components/common'
 import Carousel from './Carousel'
 const Gallery = () => {
-  const IMG = [
-    '/assets/couple1.png',
-    '/assets/couple2.png',
-    '/assets/couple3.png',
-  ]
+  const IMG = new Array(9).fill(1).map((el, idx) => {
+    return `/assets/couple${el + idx}.jpg`
+  })
   return (
-    <InnerWrapper className="gallery">
+    <InnerContainer className="gallery">
       <Title>G a l l e r y</Title>
       <Carousel imgSource={IMG} />
-    </InnerWrapper>
+    </InnerContainer>
   )
 }
 

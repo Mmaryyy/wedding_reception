@@ -1,13 +1,13 @@
 import { styled } from 'styled-components'
 
-export const Container = styled.div`
-  width: 90%;
-  height: 35vh;
+export const CarouselContainer = styled.div`
+  width: 100%;
+  height: 60vh;
   margin: 10px auto;
   overflow: hidden;
   position: relative;
   border-radius: 3px;
-  box-shadow: -1px -1px var(--black-100), 1px 1px var(--black-200);
+  box-shadow: -1px -1px var(--black-100), 1px 1px var(--black-100);
 `
 
 export const ImageBox = styled.ul`
@@ -15,17 +15,12 @@ export const ImageBox = styled.ul`
   height: 100%;
   display: flex;
   transition: all 0.8s ease-in-out;
-  transform: ${(props) => `translateX(-${props.count * props.imgWidth}vw)`};
-`
-
-export const ImageList = styled.li`
-  width: 90vw;
-  height: 100%;
+  transform: ${(props) => `translateX(-${props.count * props.imgWidth}px)`};
 `
 
 export const Img = styled.img`
-  width: 100%;
-  height: 100%;
+  width: ${(props) => props.width || '90vw'};
+  height: 60vh;
   object-fit: cover;
 `
 
@@ -48,8 +43,8 @@ export const BtnWrapper = styled.div`
 `
 
 export const SlideBtn = styled.button`
-  width: 0.5em;
-  height: 0.5em;
+  width: 1em;
+  height: 1em;
   font-size: 3em;
   color: var(--white-bg);
   cursor: pointer;
@@ -69,7 +64,7 @@ export const SlideBtn = styled.button`
 `
 
 export const BulletContainer = styled.ul`
-  width: 15%;
+  width: 40%;
   height: 10%;
   display: flex;
   justify-content: space-between;
