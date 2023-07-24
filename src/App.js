@@ -7,9 +7,9 @@ import {
 } from './styles/s-components/common'
 
 import { BrowserRouter } from 'react-router-dom'
+import Contact from './components/Contact'
 import Gallery from './components/Gallery'
 import { GlobalStyle } from './styles/s-global/GlobalStyle'
-import Greeting from './components/Greeting'
 import Intro from './components/Intro'
 import Invite from './components/Invite'
 import React from 'react'
@@ -28,7 +28,7 @@ function App() {
                 <Invite />
                 <Intro />
                 <Gallery />
-                <Greeting />
+                <Contact />
               </InnerBox>
             </InnerWrapper>
           </OuterWrapper>
