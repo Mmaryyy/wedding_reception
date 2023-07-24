@@ -1,10 +1,12 @@
-import styled from 'styled-components'
 import '../s-global/variable.css'
+
+import styled from 'styled-components'
 
 // layout - outer background
 export const OuterWrapper = styled.main`
   width: 100%;
   padding: 20px;
+  position: relative;
 `
 
 export const InnerWrapper = styled.div`
@@ -58,6 +60,7 @@ export const DivisionLine = styled.hr`
   border: 0;
   margin: 30px;
 `
+
 export const Title = styled.h1`
   font-family: var(--font-mapo);
   font-size: var(--fz-lg);

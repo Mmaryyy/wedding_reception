@@ -50,8 +50,13 @@ export const GlobalStyle = createGlobalStyle`
   a:active {
     background: none; color: inherit;
   }
-
+  #root {
+    width: 100%;
+    max-width: 720px;
+  }
   body {
+    display: flex;
+    justify-content: center;
     background-color: var(--bg-outer);
     overflow-x: hidden;
     font-size: var(--fz-big);
