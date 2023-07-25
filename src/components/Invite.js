@@ -1,10 +1,11 @@
-import React from 'react'
 import {
-  DivisionLine,
-  ContentWrapper,
-  Title,
   Content,
+  ContentWrapper,
+  DivisionLine,
+  Title,
 } from '../styles/s-components/common'
+
+import React from 'react'
 
 const Invite = () => {
   const comments = [
@@ -21,11 +22,7 @@ const Invite = () => {
       <Title margin={'0'}>피로연에 초대합니다.</Title>
       <DivisionLine />
       {comments.map((el, idx) => {
-        return (
-          <Content key={`comment${idx + 1}`} fz={`var(--fz-big)`}>
-            {el}
-          </Content>
-        )
+        return <Content key={`comment${idx + 1}`}>{el}</Content>
       })}
     </ContentWrapper>
   )
