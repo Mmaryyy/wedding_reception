@@ -1,12 +1,28 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 import { MapContainer } from '../styles/s-components/map'
+import { debounce } from 'lodash'
 
 const { kakao } = window
 
 const Map = () => {
   const LAT = 35.1126524
   const LNG = 126.8485533
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth)
+  const ref = useRef(null)
+
+  const handleResize = debounce(() => {
+    setWindowWidth(window.innerWidth)
+  }, 100)
+
+  useEffect(() => {
+    window.addEventListener('resize', handleResize)
+    return () => {
+      // cleanUp
+      window.removeEventListener('resize', handleResize)
+    }
+  })
+  // 렌더링될때 최상위 div의 너비 가져오기
 
   useEffect(() => {
     // 지도 생성
@@ -31,8 +47,8 @@ const Map = () => {
       content,
     })
     customOverlay.setMap(map)
-  }, [])
-  return <MapContainer id="map">Map</MapContainer>
+  }, [windowWidth])
+  return <MapContainer id="map" ref={ref} />
 }
 
 export default Map
