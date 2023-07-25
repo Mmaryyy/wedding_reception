@@ -77,10 +77,13 @@ export const Title = styled.h1`
 export const Content = styled.p`
   line-height: 1.8;
   color: ${(props) => props.color || 'inherit'};
+  font-size: ${(props) => props.fz || 'var(--fz-big)'};
+
   &.strong {
     font-weight: var(--fw-bold);
   }
   @media screen and (max-width: 720px) {
+    font-size: ${(props) => props.fz || 'var(--fz-base)'};
     &.strong {
       font-size: 18px;
     }
