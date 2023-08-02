@@ -30,7 +30,7 @@ const Map = () => {
     const options = {
       center: new kakao.maps.LatLng(LAT, LNG),
       draggable: false,
-      level: 3,
+      level: 4,
     }
     const map = new kakao.maps.Map(container, options)
     // 마커 생성
