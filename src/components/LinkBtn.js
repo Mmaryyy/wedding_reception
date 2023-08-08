@@ -1,16 +1,19 @@
-/* eslint-disable */
 import { AppBtn, AppLogo } from '../styles/s-components/guide'
-
-import React from 'react'
+import React, { useEffect } from 'react'
 
 const LinkBtn = ({ type, title }) => {
-  const WEDDINGHALL = '카페아리아'
+  const WEDDINGHALL = '스타파티오'
   const LAT = 35.1126524
   const LNG = 126.8485533
-  const onClickAppBtn = () => {
+  useEffect(() => {
+    if (!window.Kakao.isInitialized()) {
+      window.Kakao.init('b2d2b92adb867bc2d028a2dc23a68643')
+    }
+  }, [])
+  const getAppScheme = () => {
     switch (type) {
       case 'kakaonavi':
-        Kakao.Navi.start({
+        window.Kakao.Navi.start({
           name: WEDDINGHALL,
           x: LNG,
           y: LAT,
@@ -24,22 +27,59 @@ const LinkBtn = ({ type, title }) => {
         return
       case 'naver':
         ;(() => {
-          const naverAppStoreUrl =
-            'http://itunes.apple.com/kr/app/naver-map-navigation/id311867728'
-          const appSchemeUrl = `nmap://route/car?dlat=${LAT}&dlng=${LNG}&dname=${WEDDINGHALL}&appname=https://wedding-reception-93e0b.web.app/`
-          const clickedAt = +new Date()
-          console.log(clickedAt)
-          naverAppCheckTimer = setTimeout(() => {
-            if (+new Date() - clickedAt < 2000) {
-              window.location.href = naverAppStoreUrl
-              return
-            }
-            return (window.location.href = appSchemeUrl)
-          }, 5000)
+          window.location.href = `nmap://route/car?dlat=${LAT}&dlng=${LNG}&dname=${WEDDINGHALL}&appname=https://wedding-reception-93e0b.web.app/`
         })()
-      default:
-        return console.log('type 에러')
     }
+  }
+  const getStoreScheme = () => {
+    // 2. User agent에서 안드로이드 - IOS 체크
+    // 2-2. IOS: 앱스토어 링크로 이동
+    // 2-1. 안드로이드: 안드로이드 크롬이면 intent, 그외 브라우저에서는 -> 구글 플레이스토어 이동
+    const IOS = /iPhone|iPad|iPod/i
+    const ANDROID = /android/i
+    // const CHROME = /chrome/i
+    const userAgent = navigator.userAgent
+    const IosTmapUrl = 'https://apps.apple.com/kr/app/tmap/id431589174'
+    const IosNaverMapUrl =
+      'https://apps.apple.com/kr/app/naver-map-navigation/id311867728'
+    const AndroidTmapUrl =
+      'https://play.google.com/store/apps/details?id=com.skt.tmap.ku&hl=ko&gl=US'
+    const AndroidNaverMapUrl =
+      'https://play.google.com/store/apps/details?id=com.nhn.android.nmap&hl=ko&gl=US'
+    // const IntentTmapUrl = 'intent://'
+    // const IntentNaverMapUrl = ''
+    //  "intent://커스텀스킴주소#Intent; scheme=스킴; action=..;category=..; package=com.android.xxx; end;";
+    if (userAgent.match(IOS)) {
+      if (type === 'tmap') {
+        return IosTmapUrl
+      }
+      return IosNaverMapUrl
+    }
+
+    if (userAgent.match(ANDROID)) {
+      // if (userAgent.match(CHROME)) {
+      //   if (type === 'tmap') {
+      //     return
+      //   }
+      // }
+      if (type === 'tmap') {
+        return AndroidTmapUrl
+      }
+      return AndroidNaverMapUrl
+    }
+  }
+  const onClickAppBtn = () => {
+    // 앱 설치 여부 감지(화면 이동 여부)를 위한 클릭 시점 저장
+    const clickedAt = +new Date()
+
+    getAppScheme()
+
+    //* 500ms 이후 화면 이동 감지 없으면 store로 이동
+    setTimeout(() => {
+      if (+new Date() - clickedAt < 2000) {
+        return (window.location.href = getStoreScheme())
+      }
+    }, 500)
   }
   return (
     <AppBtn
