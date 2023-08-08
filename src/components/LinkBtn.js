@@ -3,8 +3,8 @@ import React, { useEffect } from 'react'
 
 const LinkBtn = ({ type, title }) => {
   const WEDDINGHALL = '스타파티오'
-  const LAT = 35.1126524
-  const LNG = 126.8485533
+  const LAT = 35.1989919
+  const LNG = 126.8344649
   useEffect(() => {
     if (!window.Kakao.isInitialized()) {
       window.Kakao.init('b2d2b92adb867bc2d028a2dc23a68643')
