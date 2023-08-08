@@ -6,8 +6,8 @@ import { debounce } from 'lodash'
 const { kakao } = window
 
 const Map = () => {
-  const LAT = 35.1126524
-  const LNG = 126.8485533
+  const LAT = 35.1989919
+  const LNG = 126.8344649
   const [windowWidth, setWindowWidth] = useState(window.innerWidth)
   const ref = useRef(null)
 
@@ -40,10 +40,11 @@ const Map = () => {
     })
     marker.setMap(map)
     // 커스텀오버레이 생성
+    const overlayPosition = new kakao.maps.LatLng(LAT - 0.0013, LNG)
     const content =
-      '<div style="text-align: center; background-color: var(--white-bg); padding: 0.5rem; border-radius: 5px; font-size: var(--fz-sm);}"><strong>카페 아리아</strong><p style="line-height: 1.8;">광주 서구 회재유통길 24</p></div>'
+      '<div style="text-align: center; background-color: var(--white-bg); padding: 0.5rem; border-radius: 5px; font-size: var(--fz-sm);}"><strong>스타파티오 스피카홀</strong><p style="line-height: 1.8;">광주 광산구 왕버들로 217</p> <p style="line-height: 1.8;"></p>한듬레포츠 2층</div>'
     const customOverlay = new kakao.maps.CustomOverlay({
-      position,
+      position: overlayPosition,
       content,
     })
     customOverlay.setMap(map)

@@ -11,6 +11,7 @@ const Intro = () => {
     <>
       <ContentWrapper padding={'20px 0'}>
         <Content>2023년 10월 7일 12시</Content>
+        <Content>광주 광산구 왕버들로 217</Content>
         <Content>스타파티오 스피카홀</Content>
         <Content fz={`var(--fz-base)`}>
           광주 KS병원 맞은편, 한듬레포츠 2층
