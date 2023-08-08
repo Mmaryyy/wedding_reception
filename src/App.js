@@ -9,6 +9,7 @@ import { BrowserRouter } from 'react-router-dom'
 import Contact from './components/Contact'
 import Gallery from './components/Gallery'
 import { GlobalStyle } from './styles/s-global/GlobalStyle'
+import Guidance from './components/Guidance'
 import Intro from './components/Intro'
 import Invite from './components/Invite'
 import { StyleSheetManager } from 'styled-components'
@@ -30,6 +31,7 @@ function App() {
                 <Invite />
                 <Intro />
                 <Gallery />
+                <Guidance />
                 <Contact />
               </InnerBox>
             </InnerWrapper>
