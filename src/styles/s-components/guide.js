@@ -3,7 +3,6 @@ import { styled } from 'styled-components'
 
 export const GuideContainer = styled.section`
   width: 100%;
-  background-color: beige;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -26,16 +25,17 @@ export const AppBtnWrapper = styled.ul`
 export const AppBtn = styled(Link)`
   width: 32%;
   height: 100%;
-  /* padding: 0 5px; */
   padding-right: 5px;
   border-radius: 10px;
-  background-color: ${(props) => (props.isKakao ? '#F8DF00' : 'white')};
+  background-color: ${(props) =>
+    props.isKakao ? 'var(--kakaoYellow)' : 'white'};
   display: flex;
   justify-content: space-between;
   align-items: center;
   &:active,
   &:hover {
-    background-color: var(--gold-200);
+    background-color: ${(props) =>
+      props.isKakao ? 'var(--kakaoYellow)' : 'white'};
   }
   &.naver {
     border-right: 0px;
