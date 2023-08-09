@@ -1,12 +1,26 @@
+import {
+  Content,
+  ContentWrapper,
+  DivisionLine,
+} from '../styles/s-components/common'
+
 import React from 'react'
-import { ContentWrapper, Content } from '../styles/s-components/common'
 
 const Intro = () => {
   return (
-    <ContentWrapper padding={'20px 0'}>
-      <Content fz={`var(--fz-big)`}>혼주 : 이춘홍, 김순덕</Content>
-      <Content fz={`var(--fz-big)`}>신랑, 신부 : 배재성, 이혜인</Content>
-    </ContentWrapper>
+    <>
+      <ContentWrapper padding={'20px 0'}>
+        <Content>2023년 10월 7일 12시</Content>
+        <Content>광주 광산구 왕버들로 217</Content>
+        <Content>스타파티오 스피카홀</Content>
+        <Content fz={`var(--fz-base)`}>
+          광주 KS병원 맞은편, 한듬레포츠 2층
+        </Content>
+        <DivisionLine />
+        <Content>혼주 : 이춘홍, 김순덕</Content>
+        <Content>신랑, 신부 : 배재성, 이혜인</Content>
+      </ContentWrapper>
+    </>
   )
 }
 
