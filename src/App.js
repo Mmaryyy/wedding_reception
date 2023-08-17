@@ -5,6 +5,7 @@ import {
 } from './styles/s-components/common'
 import React, { useEffect } from 'react'
 
+import Attendance from './components/Attendance'
 import { BrowserRouter } from 'react-router-dom'
 import Contact from './components/Contact'
 import Gallery from './components/Gallery'
@@ -33,6 +34,7 @@ function App() {
                 <Gallery />
                 <Guidance />
                 <Contact />
+                <Attendance />
               </InnerBox>
             </InnerWrapper>
           </OuterWrapper>

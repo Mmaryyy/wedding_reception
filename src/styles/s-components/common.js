@@ -21,7 +21,6 @@ export const InnerWrapper = styled.div`
 
 export const InnerBox = styled.div`
   width: 100%;
-  background: var(--bg-inner);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -50,6 +49,9 @@ export const ContentWrapper = styled.section`
   justify-content: center;
   align-items: center;
   box-shadow: -1px -1px var(--white), 1px 1px var(--black-100);
+  > .detail_wrapper {
+    margin-top: 10px;
+  }
 `
 
 // contents
@@ -78,7 +80,7 @@ export const Content = styled.p`
   line-height: 1.8;
   color: ${(props) => props.color || 'inherit'};
   font-size: ${(props) => props.fz || 'var(--fz-big)'};
-
+  text-align: center;
   &.strong {
     font-weight: var(--fw-bold);
   }
@@ -88,4 +90,83 @@ export const Content = styled.p`
       font-size: 18px;
     }
   }
+`
+
+export const BaseBtn = styled.button`
+  width: 100%;
+  height: 3rem;
+  padding: 0 5px;
+  color: var(--gold-400);
+  font-weight: var(--fw-bold);
+  background-color: var(--gold-100);
+  border-radius: 5px;
+  cursor: pointer;
+  &:hover {
+    background-color: var(--gold-200);
+  }
+`
+
+export const BaseInput = styled.input`
+  width: 100%;
+  height: 2rem;
+  padding: 0 5px;
+  border: 1px solid var(--gold-100);
+  border-radius: 5px;
+  &:focus,
+  &:active,
+  &:hover {
+    border: 1px solid var(--gold-300);
+  }
+  &::placeholder {
+    font-size: var(--fz-sm);
+  }
+`
+
+export const BaseLabel = styled.label`
+  font-weight: var(--fw-bold);
+  font-size: var(--fz-sm);
+  margin: 0 0 10px 0;
+`
+
+export const RadioLabel = styled(BaseLabel)`
+  padding: 5px 10px;
+  font-size: var(--fz-base);
+  background-color: ${(props) =>
+    props.isChecked ? 'var(--gold-300)' : 'var(--black-100)'};
+  border-radius: 5px;
+  margin-right: 10px;
+  color: ${(props) => (props.isChecked ? 'white' : 'inherit')};
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: var(--gold-300);
+    color: white;
+  }
+`
+
+export const InputWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  padding: 10px 0;
+  > * {
+    width: 100%;
+  }
+`
+
+export const CustomFieldset = styled.fieldset`
+  display: flex;
+  flex-direction: column;
+`
+
+export const RadioWrapper = styled.div`
+  display: flex;
+`
+
+export const RadioBtn = styled.input.attrs(() => ({
+  type: 'checkbox',
+}))`
+  opacity: 0%;
 `
