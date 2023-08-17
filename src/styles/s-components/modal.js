@@ -60,7 +60,7 @@ export const ModalBtnWrapper = styled.div`
 `
 
 export const ModalBtn = styled.button`
-  height: 2.5em;
+  height: 2.5rem;
   background-color: var(--gold-100);
   border-radius: 5px;
   padding: 5px;

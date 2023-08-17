@@ -1,27 +1,22 @@
+import { BaseBtn } from './common'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 export const DropdownContainer = styled.div`
-  min-width: 48%;
-  height: 6em;
+  width: 48%;
+  height: calc(3 * var(--menu-height));
   margin: 10px 0;
   color: var(--black-200);
 `
 
-export const DropdownBtn = styled.button`
-  width: 100%;
-  height: 2em;
-  padding: 0 5px;
-  color: var(--gold-400);
-  font-weight: var(--fw-bold);
-  background-color: var(--gold-100);
+export const DropdownBtn = styled(BaseBtn)`
+  height: var(--menu-height);
   border-radius: ${(props) => (props.isOpen ? '5px 5px 0 0' : '5px')};
   box-shadow: ${(props) =>
     props.isOpen
       ? '-1px -1px var(--white), 1px 0px var(--black-shadow)'
       : '-1px -1px var(--white), 1px 1px var(--black-shadow)'};
   transition: all 0.3s ease-in-out;
-  cursor: pointer;
   > svg {
     transition: all 0.3s ease-in-out;
   }
@@ -31,7 +26,7 @@ export const DropdownMenuList = styled.ul`
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: ${(props) => (props.isOpen ? '4em' : '0px')};
+  height: ${(props) => (props.isOpen ? `calc(2 * var(--menu-height))` : '0px')};
   border-radius: 0 0 5px 5px;
   overflow: hidden;
   box-shadow: -1px 0px var(--white), 1px 1px var(--black-shadow);
@@ -41,7 +36,7 @@ export const DropdownMenuList = styled.ul`
 // dropdown menu
 export const DropdownMenuItem = styled.li`
   width: 100%;
-  height: 2em;
+  height: var(--menu-height);
   background-color: var(--white);
   display: flex;
   justify-content: center;
@@ -61,8 +56,8 @@ export const DropdownLink = styled(Link)`
 `
 
 export const PayLogo = styled.img`
-  width: 5em;
-  padding: 5px;
+  width: 50%;
+  object-fit: contain;
   border-radius: 5px;
   margin-right: 5px;
 `
