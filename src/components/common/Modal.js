@@ -8,7 +8,7 @@ import {
 } from '../../styles/s-components/modal'
 import React, { useEffect } from 'react'
 
-const Modal = ({ modalContent, callback, modalHandler }) => {
+const Modal = ({ modalContent, callback, modalHandler, btnContent }) => {
   const disableScroll = () => {
     document.body.style.cssText = `
       top: -${window.scrollY}px;
@@ -49,7 +49,7 @@ const Modal = ({ modalContent, callback, modalHandler }) => {
           <ModalBtn
             onClick={callback ? confirmModalHandler : closeModalHandler}
           >
-            확인
+            {btnContent || '확인'}
           </ModalBtn>
         </ModalBtnWrapper>
       </ModalContentWrapper>
