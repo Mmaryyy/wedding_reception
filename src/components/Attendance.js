@@ -34,9 +34,7 @@ const Attendance = () => {
         </div>
       </ContentWrapper>
       <BaseBtn onClick={onClickModalBtn}>참석 의사 전달하기</BaseBtn>
-      {modalOpen ? (
-        <Modal.Submit modalContent={''} modalHandler={onClickModalBtn} />
-      ) : null}
+      {modalOpen ? <Modal.Submit modalHandler={onClickModalBtn} /> : null}
     </>
   )
 }

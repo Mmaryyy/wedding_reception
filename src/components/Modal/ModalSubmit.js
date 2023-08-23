@@ -14,7 +14,7 @@ import React, { useEffect } from 'react'
 import useInput from '../../utils/useInput'
 import { useSelector } from 'react-redux'
 
-export const ModalSubmit = ({ modalContent, modalHandler }) => {
+export const ModalSubmit = ({ modalHandler }) => {
   const contents = [
     '먼 길 오시는 걸음,',
     '모자람 없이 대접할 수 있도록',
