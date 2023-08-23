@@ -1,4 +1,6 @@
 /* eslint-disable */
+import * as Modal from './Modal'
+
 import {
   BaseBtn,
   Content,
@@ -9,7 +11,6 @@ import {
 import React, { useState } from 'react'
 
 import Form from './Form'
-import Modal from './common/Modal'
 
 const Attendance = () => {
   const [modalOpen, setModalOpen] = useState(false)
@@ -37,11 +38,7 @@ const Attendance = () => {
       <BaseBtn onClick={onClickModalBtn}>참석 의사 전달하기</BaseBtn>
       <Form />
       {modalOpen ? (
-        <Modal
-          modalContent={''}
-          modalHandler={onClickModalBtn}
-          btnContent={'닫기'}
-        />
+        <Modal.Submit modalContent={''} modalHandler={onClickModalBtn} />
       ) : null}
     </>
   )

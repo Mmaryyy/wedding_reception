@@ -60,10 +60,12 @@ export const ModalBtnWrapper = styled.div`
 `
 
 export const ModalBtn = styled.button`
+  width: 100%;
   height: 2.5rem;
   background-color: var(--gold-100);
   border-radius: 5px;
   padding: 5px;
+  margin: 0 5px;
   color: var(--gold-400);
   @media screen and (max-width: 720px) {
     font-size: var(--fz-sm);
