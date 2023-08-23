@@ -6,9 +6,9 @@ const initialState = {
   seletedParent: '',
 }
 
-export const submitSlice = createSlice({
-  name: 'submitData',
+export const contentsSlice = createSlice({
+  name: 'contents',
   initialState,
 })
 
-export default submitSlice.reducer
+export default contentsSlice.reducer
