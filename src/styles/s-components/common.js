@@ -54,6 +54,27 @@ export const ContentWrapper = styled.section`
   }
 `
 
+export const InputWrapper = styled.div`
+  display: flex;
+  flex-direction: ${(props) => props.flexDirection || 'column'};
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  padding: 10px 0;
+  > * {
+    width: 100%;
+  }
+`
+
+export const CustomFieldset = styled.fieldset`
+  display: flex;
+  flex-direction: column;
+`
+
+export const RadioWrapper = styled.div`
+  display: flex;
+`
+
 // contents
 export const DivisionLine = styled.hr`
   width: 30%;
@@ -108,23 +129,20 @@ export const BaseBtn = styled.button`
 
 export const BaseInput = styled.input`
   width: 100%;
-  height: 2rem;
-  padding: 0 5px;
+  padding: 5px 10px;
   border: 1px solid var(--gold-100);
   border-radius: 5px;
+
   &:focus,
   &:active,
   &:hover {
     border: 1px solid var(--gold-300);
   }
-  &::placeholder {
-    font-size: var(--fz-sm);
-  }
 `
 
 export const BaseLabel = styled.label`
   font-weight: var(--fw-bold);
-  font-size: var(--fz-sm);
+  /* font-size: var(--fz-sm); */
   margin: 0 0 10px 0;
 `
 
@@ -144,29 +162,50 @@ export const RadioLabel = styled(BaseLabel)`
   }
 `
 
-export const InputWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
+export const BaseSelect = styled.select`
   width: 100%;
-  padding: 10px 0;
-  > * {
-    width: 100%;
+  padding: 5px 10px;
+  border: 1px solid var(--gold-100);
+  border-radius: 5px;
+  color: var(--black-200);
+  &:focus,
+  &:active,
+  &:hover {
+    border: 1px solid var(--gold-300);
+  }
+  & > option.default {
+    font-size: var(--fz-xs);
   }
 `
 
-export const CustomFieldset = styled.fieldset`
-  display: flex;
-  flex-direction: column;
-`
-
-export const RadioWrapper = styled.div`
-  display: flex;
+export const Checkbox = styled.input.attrs(() => ({
+  type: 'checkbox',
+}))`
+  display: none;
+  & + label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--gold-main);
+    border-radius: 3px;
+    margin-right: 5px;
+    cursor: pointer;
+    & > svg {
+      display: none;
+    }
+  }
+  &:checked + label {
+    background-color: var(--gold-main);
+    & > svg {
+      display: block;
+    }
+  }
 `
 
 export const RadioBtn = styled.input.attrs(() => ({
-  type: 'checkbox',
+  type: 'radio',
 }))`
   opacity: 0%;
 `
