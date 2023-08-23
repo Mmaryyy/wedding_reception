@@ -10,8 +10,6 @@ import {
 } from '../styles/s-components/common'
 import React, { useState } from 'react'
 
-import Form from './Form'
-
 const Attendance = () => {
   const [modalOpen, setModalOpen] = useState(false)
   const onClickModalBtn = () => {
@@ -36,7 +34,6 @@ const Attendance = () => {
         </div>
       </ContentWrapper>
       <BaseBtn onClick={onClickModalBtn}>참석 의사 전달하기</BaseBtn>
-      <Form />
       {modalOpen ? (
         <Modal.Submit modalContent={''} modalHandler={onClickModalBtn} />
       ) : null}

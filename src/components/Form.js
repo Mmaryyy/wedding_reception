@@ -1,34 +1,38 @@
 /* eslint-disable */
+import * as Input from './Input'
 
-import {
-  BaseInput,
-  BaseLabel,
-  Content,
-  CustomFieldset,
-  InputWrapper,
-  RadioBtn,
-  RadioLabel,
-  RadioWrapper,
-  Title,
-} from '../styles/s-components/common'
-import React, { useState } from 'react'
+import { Content, Title } from '../styles/s-components/common'
 
 import { FormContainer } from '../styles/s-components/form'
+import React from 'react'
 import useInput from '../utils/useInput'
-import useRadioInput from '../utils/useRadioInput'
+import { useSelector } from 'react-redux'
 
 const Form = () => {
-  const PARENTS = ['父측,daddy', '母측,mommy']
   const contents = [
     '먼 길 오시는 걸음,',
     '모자람 없이 대접할 수 있도록',
     '참석 의사를 미리 말씀해주세요.',
   ]
+  const parents = useSelector((state) => state.parents)
   const name = useInput('')
+  const password = useInput('')
+  const selectedParents = useInput('daddy')
+  const totalPeople = useInput('default')
 
-  const [selectedParent, setSelectedParent] = useState('daddy')
-  const handleRadio = (e) => {
-    setSelectedParent(e.target.value)
+  const peopleOption = new Array(10).fill(1)
+
+  const submitData = (e) => {
+    e.preventDefault()
+
+    const data = {
+      name: name.value,
+      selectedParents: selectedParents.value,
+      totalPeople: totalPeople.value,
+      password: password.value,
+    }
+
+    console.log(data)
   }
 
   return (
@@ -37,47 +41,31 @@ const Form = () => {
       {contents.map((el, idx) => {
         return <Content key={idx}>{el}</Content>
       })}
-      <InputWrapper>
-        <BaseLabel htmlFor="inputName">참석자 성함</BaseLabel>
-        <BaseInput
-          type="text"
-          id="inputName"
-          placeholder="성함을 입력해 주세요."
-          {...name}
-        />
-      </InputWrapper>
-      <InputWrapper>
-        <CustomFieldset>
-          <BaseLabel as="legend">구분</BaseLabel>
-          <RadioWrapper className="radio_wrapper">
-            {PARENTS.map((parent, idx) => {
-              const [label, content] = parent.split(',')
-              return (
-                <div className={`radio_${content}`} key={idx}>
-                  <RadioLabel
-                    htmlFor={`radio_${content}`}
-                    isChecked={selectedParent === content}
-                  >
-                    {label}
-                  </RadioLabel>
-                  <RadioBtn
-                    type="radio"
-                    id={`radio_${content}`}
-                    value={content}
-                    name="parents"
-                    checked={selectedParent === content}
-                    onChange={handleRadio}
-                  />
-                </div>
-              )
-            })}
-          </RadioWrapper>
-        </CustomFieldset>
-      </InputWrapper>
-      <InputWrapper>
-        <BaseLabel htmlFor="inputName">참석 인원</BaseLabel>
-        <select type="text" id="inputName"></select>
-      </InputWrapper>
+      <Input.Text
+        id={'name'}
+        label={'참석자 성함'}
+        placeholder={'성함을 입력해 주세요.'}
+        {...name}
+      />
+      <Input.Radio
+        id={'parents'}
+        label={'구분'}
+        radioArr={parents}
+        {...selectedParents}
+      />
+      <Input.Select
+        id={'totalPeople'}
+        label={'참석 인원'}
+        selectOption={peopleOption}
+        defaultValue={'본인을 포함한 총 인원을 선택해 주세요.'}
+        {...totalPeople}
+      />
+      <Input.Password
+        id={'password'}
+        label={'비밀번호'}
+        placeholder={'추후 내용 확인/수정 용도로 사용됩니다.'}
+        {...password}
+      />
     </FormContainer>
   )
 }

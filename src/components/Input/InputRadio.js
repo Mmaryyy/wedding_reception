@@ -9,7 +9,7 @@ import {
 
 import React from 'react'
 
-export const InputRadio = ({ id, label, radioArr, ...rest }) => {
+export const InputRadio = ({ id, label, radioArr = [], ...rest }) => {
   const { value, onChange } = rest
   return (
     <InputWrapper className={`input_${id}_radio`}>
