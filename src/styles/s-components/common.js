@@ -38,7 +38,7 @@ export const InnerContainer = styled.section`
 
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: ${(props) => props.justifyContent || 'center'};
 `
 
 export const ContentWrapper = styled.section`
@@ -114,6 +114,32 @@ export const Content = styled.p`
       font-size: 18px;
     }
   }
+`
+
+export const Table = styled.table`
+  border: 1px solid var(--black-200);
+  text-align: center;
+  width: 100%;
+  margin: 10px 0;
+`
+export const TableTitle = styled.caption`
+  font-size: var(--fz-lg);
+  font-weight: var(--fz-bold);
+  margin-bottom: 10px;
+`
+export const TableHead = styled.th`
+  border: 0.5px solid var(--black-200);
+  font-weight: var(--fw-bold);
+  background-color: ${(props) => props.bgColor || ''};
+`
+
+export const TableBodyWrapper = styled.tbody`
+  overflow-y: auto;
+`
+
+export const TableData = styled.td`
+  border: 0.5px solid var(--black-200);
+  background-color: ${(props) => props.bgColor || ''};
 `
 
 export const BaseBtn = styled.button`

@@ -27,7 +27,7 @@ export const ModalContentWrapper = styled.article`
   transform: translate(-50%, -50%);
   width: 50%;
   min-height: 30%;
-  padding: 1.5rem;
+  padding: 1rem;
   background-color: var(--white);
   border-radius: 10px;
   display: flex;
