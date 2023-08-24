@@ -9,6 +9,8 @@ import {
 } from '../styles/s-components/common'
 import React, { useState } from 'react'
 
+import { Link } from 'react-router-dom'
+
 export const Attendance = () => {
   const [attendanceModalOpen, setAttendanceModalOpen] = useState(false)
 
@@ -50,7 +52,9 @@ export const Attendance = () => {
         </div>
       </ContentWrapper>
       <BaseBtn onClick={attendanceModalHandler}>참석 의사 전달하기</BaseBtn>
-      <BaseBtn margin={'5px 0 0 0'}>(혼주 전용) 참석 명단 확인</BaseBtn>
+      <BaseBtn margin={'5px 0 0 0'} as={Link} to={'/list'}>
+        (혼주 전용) 참석 명단 확인
+      </BaseBtn>
       {attendanceModalOpen ? (
         <Modal.Submit modalHandler={attendanceModalHandler} />
       ) : null}
