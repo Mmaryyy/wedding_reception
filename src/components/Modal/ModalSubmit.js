@@ -30,7 +30,7 @@ export const ModalSubmit = ({ modalHandler }) => {
   const name = useInput('')
   const totalPeople = useInput('default')
   const selectedParents = useInput('daddy')
-  const password = useInput('')
+  const phoneNumber = useInput('')
 
   const peopleOption = new Array(10).fill(1)
 
@@ -55,7 +55,7 @@ export const ModalSubmit = ({ modalHandler }) => {
       name: name.value,
       selectedParents: selectedParents.value,
       totalPeople: Number(totalPeople.value),
-      password: password.value,
+      phoneNumber: Number(phoneNumber.value),
     }
     // submit 할 데이터 받아서 firestore 전송하기
     submitData(data)
@@ -96,9 +96,10 @@ export const ModalSubmit = ({ modalHandler }) => {
             />
             <Input.Password
               id={'password'}
-              label={'비밀번호'}
+              label={'휴대폰 뒷번호 4자리'}
               placeholder={'추후 내용 확인/수정 용도로 사용됩니다.'}
-              {...password}
+              maxLength={4}
+              {...phoneNumber}
             />
           </ModalInputWrapper>
         </ModalContent>
