@@ -60,7 +60,7 @@ export const InputWrapper = styled.div`
   justify-content: center;
   align-items: flex-start;
   width: 100%;
-  padding: 10px 0;
+  margin-bottom: 5px;
   > * {
     width: 100%;
   }
@@ -121,6 +121,7 @@ export const BaseBtn = styled.button`
   font-weight: var(--fw-bold);
   background-color: var(--gold-100);
   border-radius: 5px;
+  margin: ${(props) => props.margin || '0px'};
   cursor: pointer;
   &:hover {
     background-color: var(--gold-200);
@@ -142,12 +143,11 @@ export const BaseInput = styled.input`
 
 export const BaseLabel = styled.label`
   font-weight: var(--fw-bold);
-  /* font-size: var(--fz-sm); */
-  margin: 0 0 10px 0;
+  margin-bottom: 5px;
 `
 
 export const RadioLabel = styled(BaseLabel)`
-  padding: 5px 10px;
+  padding: 3px 8px;
   font-size: var(--fz-base);
   background-color: ${(props) =>
     props.isChecked ? 'var(--gold-300)' : 'var(--black-100)'};

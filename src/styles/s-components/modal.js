@@ -71,3 +71,9 @@ export const ModalBtn = styled.button`
     font-size: var(--fz-sm);
   }
 `
+
+export const ModalInputWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0;
+`
