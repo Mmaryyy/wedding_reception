@@ -38,6 +38,7 @@ export const ModalContentWrapper = styled.article`
     width: 75%;
   }
 `
+
 export const ModalContent = styled.pre`
   flex-grow: 1;
   display: flex;
@@ -48,6 +49,7 @@ export const ModalContent = styled.pre`
     font-size: var(--fz-base);
   }
 `
+
 export const ModalBtnWrapper = styled.div`
   width: 100%;
   height: 25%;
@@ -56,6 +58,15 @@ export const ModalBtnWrapper = styled.div`
   align-items: center;
   & > button {
     width: ${(props) => (props.callback ? '40%' : '80%')};
+  }
+`
+
+export const ModalCloseBtn = styled.button`
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  & > svg {
+    color: var(--black-200);
   }
 `
 
