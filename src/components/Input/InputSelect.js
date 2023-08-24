@@ -17,7 +17,7 @@ export const InputSelect = ({
   return (
     <InputWrapper className={`input_select_${id}`}>
       <BaseLabel htmlFor={`input_${id}`}>{label}</BaseLabel>
-      <BaseSelect value={value} onChange={onChange} id={`input_${id}`}>
+      <BaseSelect value={value} onChange={onChange} id={`input_${id}`} required>
         <option value="default" key="default" className="default" disabled>
           {defaultValue}
         </option>

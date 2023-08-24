@@ -17,6 +17,7 @@ export const InputText = ({ label, id, placeholder, ...rest }) => {
         placeholder={placeholder}
         value={value}
         onChange={onChange}
+        required
       />
     </InputWrapper>
   )

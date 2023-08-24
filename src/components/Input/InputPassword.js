@@ -6,7 +6,14 @@ import {
 
 import React from 'react'
 
-export const InputPassword = ({ id, label, placeholder, ...rest }) => {
+export const InputPassword = ({
+  id,
+  label,
+  placeholder,
+  minLength,
+  maxLength,
+  ...rest
+}) => {
   const { value, onChange } = rest
   return (
     <InputWrapper className={`input_${id}`}>
@@ -17,6 +24,8 @@ export const InputPassword = ({ id, label, placeholder, ...rest }) => {
         placeholder={placeholder}
         value={value}
         onChange={onChange}
+        maxLength={maxLength}
+        required
       />
     </InputWrapper>
   )

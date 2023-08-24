@@ -13,7 +13,7 @@ export const InputRadio = ({ id, label, radioArr = [], ...rest }) => {
   const { value, onChange } = rest
   return (
     <InputWrapper className={`input_${id}_radio`}>
-      <CustomFieldset>
+      <CustomFieldset required>
         <BaseLabel as="legend">{label}</BaseLabel>
         <RadioWrapper className="radio_wrapper">
           {radioArr.map((el, idx) => {
