@@ -50,6 +50,7 @@ export const ModalSubmit = ({ modalHandler }) => {
   }
 
   const submitHandler = async (e) => {
+    e.preventDefault()
     const data = {
       name: name.value,
       selectedParents: selectedParents.value,
@@ -103,7 +104,9 @@ export const ModalSubmit = ({ modalHandler }) => {
         </ModalContent>
         <ModalBtnWrapper>
           <ModalBtn onClick={closeModalHandler}>취소</ModalBtn>
-          <ModalBtn onClick={submitHandler}>제출</ModalBtn>
+          <ModalBtn type="submit" onClick={submitHandler}>
+            제출
+          </ModalBtn>
         </ModalBtnWrapper>
       </ModalContentWrapper>
     </ModalContainer>
