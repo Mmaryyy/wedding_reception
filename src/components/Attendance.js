@@ -1,4 +1,3 @@
-/* eslint-disable */
 import * as Modal from './Modal'
 
 import {
@@ -10,33 +9,48 @@ import {
 } from '../styles/s-components/common'
 import React, { useState } from 'react'
 
-const Attendance = () => {
-  const [modalOpen, setModalOpen] = useState(false)
-  const onClickModalBtn = () => {
-    setModalOpen(!modalOpen)
+export const Attendance = () => {
+  const [attendanceModalOpen, setAttendanceModalOpen] = useState(false)
+
+  const attendanceModalHandler = () => {
+    setAttendanceModalOpen(!attendanceModalOpen)
   }
 
+  const CONTENTS = [
+    '귀한 발걸음 하신 분들께',
+    '모자람 없이 대접하고자 합니다.',
+    '참석 여부를 편히 알려주시면',
+    '행사를 준비하기에',
+    '큰 도움이 됩니다.',
+  ]
+
+  const DETAILS = [
+    '* 인원 수는 본인을 포함한',
+    '<strong>총 인원</strong>으로 기재해 주세요.',
+  ]
   return (
     <>
       <ContentWrapper padding={'50px 0'}>
         <Title margin={'0'}>참 석 여 부</Title>
         <DivisionLine />
-        <Content>귀한 발걸음 하신 분들께</Content>
-        <Content>모자람 없이 대접하고자 합니다.</Content>
-        <Content>참석 여부를 편히 알려주시면</Content>
-        <Content>행사를 준비하기에</Content>
-        <Content>큰 도움이 됩니다.</Content>
+        {CONTENTS.map((el, idx) => {
+          return <Content key={idx}>{el}</Content>
+        })}
         <div className="detail_wrapper">
-          <Content fz={'var(--fz-xs)'}>* 인원 수는 본인을 포함한</Content>
-          <Content fz={'var(--fz-xs)'}>
-            <strong>총 인원</strong>으로 기재해 주세요.
-          </Content>
+          {DETAILS.map((el, idx) => {
+            return (
+              <Content fz={'var(--fz-xs)'} key={idx}>
+                {el}
+              </Content>
+            )
+          })}
         </div>
       </ContentWrapper>
-      <BaseBtn onClick={onClickModalBtn}>참석 의사 전달하기</BaseBtn>
-      {modalOpen ? <Modal.Submit modalHandler={onClickModalBtn} /> : null}
+      <BaseBtn onClick={attendanceModalHandler}>참석 의사 전달하기</BaseBtn>
+      <BaseBtn margin={'5px 0 0 0'}>(혼주 전용) 참석 명단 확인</BaseBtn>
+      {attendanceModalOpen ? (
+        <Modal.Submit modalHandler={attendanceModalHandler} />
+      ) : null}
     </>
   )
 }
-
-export default Attendance
