@@ -1,4 +1,4 @@
-import { AppBtn, AppLogo } from '../styles/s-components/guide'
+import { AppBtn, AppLogo } from '../../styles/s-components/guide'
 import React, { useEffect } from 'react'
 
 const LinkBtn = ({ type, title }) => {

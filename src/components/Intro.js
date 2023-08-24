@@ -6,7 +6,7 @@ import {
 
 import React from 'react'
 
-const Intro = () => {
+export const Intro = () => {
   return (
     <>
       <ContentWrapper padding={'20px 0'}>
@@ -23,5 +23,3 @@ const Intro = () => {
     </>
   )
 }
-
-export default Intro

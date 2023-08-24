@@ -1,7 +1,9 @@
-import React from 'react'
 import { InnerContainer, Title } from '../styles/s-components/common'
-import Carousel from './Carousel'
-const Gallery = () => {
+
+import Carousel from './common/Carousel'
+import React from 'react'
+
+export const Gallery = () => {
   const IMG = new Array(9).fill(1).map((el, idx) => {
     return `/assets/couple${el + idx}.jpg`
   })
@@ -12,5 +14,3 @@ const Gallery = () => {
     </InnerContainer>
   )
 }
-
-export default Gallery

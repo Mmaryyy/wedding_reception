@@ -1,18 +1,20 @@
 import {
+  Attendance,
+  Contact,
+  Gallery,
+  Guidance,
+  Intro,
+  Invite,
+} from './components'
+import {
   InnerBox,
   InnerWrapper,
   OuterWrapper,
 } from './styles/s-components/common'
 import React, { useEffect } from 'react'
 
-import Attendance from './components/Attendance'
 import { BrowserRouter } from 'react-router-dom'
-import Contact from './components/Contact'
-import Gallery from './components/Gallery'
 import { GlobalStyle } from './styles/s-global/GlobalStyle'
-import Guidance from './components/Guidance'
-import Intro from './components/Intro'
-import Invite from './components/Invite'
 import { StyleSheetManager } from 'styled-components'
 import isPropValid from '@emotion/is-prop-valid'
 

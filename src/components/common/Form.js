@@ -1,11 +1,11 @@
 /* eslint-disable */
-import * as Input from './Input'
+import * as Input from '../Input'
 
-import { Content, Title } from '../styles/s-components/common'
+import { Content, Title } from '../../styles/s-components/common'
 
-import { FormContainer } from '../styles/s-components/form'
+import { FormContainer } from '../../styles/s-components/form'
 import React from 'react'
-import useInput from '../utils/useInput'
+import useInput from '../../utils/useInput'
 import { useSelector } from 'react-redux'
 
 const Form = () => {
