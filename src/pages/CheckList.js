@@ -1,11 +1,11 @@
-import * as Input from './Input'
+import * as Input from './../components/Input'
 
 import React, { useState } from 'react'
 
 import { firestore } from '../firebase'
 import useInput from '../utils/useInput'
 
-const CheckList = () => {
+export const CheckList = () => {
   // 비밀번호를 확인하기 전에 보여줄 화면과
   // 확인 후 보여줄 화면 분기하기
   const [authorization, setAuthorization] = useState(false)
@@ -48,5 +48,3 @@ const CheckList = () => {
     </>
   )
 }
-
-export default CheckList

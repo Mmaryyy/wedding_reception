@@ -1,3 +1,4 @@
+// components
 export { Intro } from './Intro'
 export { Invite } from './Invite'
 export { Gallery } from './Gallery'

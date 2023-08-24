@@ -26,8 +26,11 @@ export const Attendance = () => {
 
   const DETAILS = [
     '* 인원 수는 본인을 포함한',
-    '<strong>총 인원</strong>으로 기재해 주세요.',
+    <pre key={'details'}>
+      <strong>총 인원</strong>으로 기재해 주세요.
+    </pre>,
   ]
+
   return (
     <>
       <ContentWrapper padding={'50px 0'}>
