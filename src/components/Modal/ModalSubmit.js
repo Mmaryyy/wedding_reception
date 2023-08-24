@@ -54,7 +54,7 @@ export const ModalSubmit = ({ modalHandler }) => {
     const data = {
       name: name.value,
       selectedParents: selectedParents.value,
-      totalPeople: totalPeople.value,
+      totalPeople: Number(totalPeople.value),
       password: password.value,
     }
     // submit 할 데이터 받아서 firestore 전송하기
