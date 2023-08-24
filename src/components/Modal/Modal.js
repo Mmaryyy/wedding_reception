@@ -2,26 +2,18 @@ import {
   ModalBack,
   ModalBtn,
   ModalBtnWrapper,
+  ModalCloseBtn,
   ModalContainer,
   ModalContent,
   ModalContentWrapper,
 } from '../../styles/s-components/modal'
 import React, { useEffect } from 'react'
+import { disableScroll, enableScorll } from './../../utils/scroll'
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faXmark } from '@fortawesome/free-solid-svg-icons'
 
 export const Modal = ({ modalContent, callback, modalHandler, btnContent }) => {
-  const disableScroll = () => {
-    document.body.style.cssText = `
-      top: -${window.scrollY}px;
-      overflow-y: hidden;
-      width: 100%;
-    `
-  }
-  const enableScorll = () => {
-    const scrollY = document.body.style.top
-    document.body.style.cssText = ``
-    window.scrollTo(0, parseInt(scrollY || '0', 10) * -1)
-  }
-
   useEffect(() => {
     disableScroll()
     return () => enableScorll()
@@ -41,6 +33,9 @@ export const Modal = ({ modalContent, callback, modalHandler, btnContent }) => {
     <ModalContainer className="modal_container">
       <ModalBack onClick={closeModalHandler} className="modal_back" />
       <ModalContentWrapper>
+        <ModalCloseBtn onClick={closeModalHandler}>
+          <FontAwesomeIcon icon={faXmark} size="xl" />
+        </ModalCloseBtn>
         <ModalContent>{modalContent}</ModalContent>
         {callback ? (
           <ModalBtnWrapper>
