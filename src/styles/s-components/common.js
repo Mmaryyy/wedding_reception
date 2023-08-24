@@ -33,6 +33,9 @@ export const InnerBox = styled.div`
 // layout - contents
 export const InnerContainer = styled.section`
   width: 100%;
+  height: ${(props) =>
+    props.page ? 'calc(100vh - 2 * (20px + 10px + 8px))' : ''};
+
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -114,6 +117,9 @@ export const Content = styled.p`
 `
 
 export const BaseBtn = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 3rem;
   padding: 0 5px;
