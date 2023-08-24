@@ -28,14 +28,14 @@ export const Attendance = () => {
 
   const DETAILS = [
     '* 인원 수는 본인을 포함한',
-    <pre key={'details'}>
+    <span key={'details'}>
       <strong>총 인원</strong>으로 기재해 주세요.
-    </pre>,
+    </span>,
   ]
 
   return (
     <>
-      <ContentWrapper padding={'50px 0'}>
+      <ContentWrapper padding={'50px 0 0 0'}>
         <Title margin={'0'}>참 석 여 부</Title>
         <DivisionLine />
         {CONTENTS.map((el, idx) => {
@@ -50,11 +50,13 @@ export const Attendance = () => {
             )
           })}
         </div>
+        <BaseBtn margin={'10px 0 0 0'} onClick={attendanceModalHandler}>
+          참석 의사 전달하기
+        </BaseBtn>
+        <BaseBtn margin={'10px 0 0 0'} as={Link} to={'/list'}>
+          (혼주 전용) 참석 명단 확인
+        </BaseBtn>
       </ContentWrapper>
-      <BaseBtn onClick={attendanceModalHandler}>참석 의사 전달하기</BaseBtn>
-      <BaseBtn margin={'5px 0 0 0'} as={Link} to={'/list'}>
-        (혼주 전용) 참석 명단 확인
-      </BaseBtn>
       {attendanceModalOpen ? (
         <Modal.Submit modalHandler={attendanceModalHandler} />
       ) : null}
