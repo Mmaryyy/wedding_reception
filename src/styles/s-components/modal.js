@@ -90,6 +90,7 @@ export const ModalInputWrapper = styled.div`
 `
 
 export const Warning = styled.p`
+  min-height: 16px;
   color: red;
   margin-bottom: 15px;
   font-size: var(--fz-sm);

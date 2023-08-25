@@ -3,6 +3,7 @@ import * as Input from './../components/Input'
 import {
   BaseBtn,
   InnerContainer,
+  InputWrapper,
   Table,
   TableBodyWrapper,
   TableData,
@@ -57,17 +58,19 @@ export const CheckList = () => {
   useEffect(() => {
     getList()
   }, [])
-  console.log(list)
+
   return (
     <InnerContainer page={true} justifyContent={'flex-start'}>
       {!authorization ? (
-        <Input.Password
-          id={'password'}
-          label={'비밀번호'}
-          placeholder={'비밀번호를 입력하세요.'}
-          value={value}
-          onChange={passwordHandler}
-        />
+        <InputWrapper className="input_wrapper">
+          <Input.Password
+            id={'password'}
+            label={'비밀번호'}
+            placeholder={'비밀번호를 입력하세요.'}
+            value={value}
+            onChange={passwordHandler}
+          />
+        </InputWrapper>
       ) : (
         <Table>
           <TableTitle>참석 명단</TableTitle>

@@ -63,7 +63,8 @@ export const InputWrapper = styled.div`
   justify-content: center;
   align-items: flex-start;
   width: 100%;
-  margin-bottom: 5px;
+  height: 100%;
+  margin-bottom: ${(props) => props.marginBottom || '5px'};
   > * {
     width: 100%;
   }
