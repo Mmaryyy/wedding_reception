@@ -10,8 +10,9 @@ import {
   ModalContent,
   ModalContentWrapper,
   ModalInputWrapper,
+  Warning,
 } from '../../styles/s-components/modal'
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { disableScroll, enableScorll } from './../../utils/scroll'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -34,6 +35,8 @@ export const ModalSubmit = ({ modalHandler }) => {
 
   const peopleOption = new Array(10).fill(1)
 
+  const [validation, setValidation] = useState(true)
+
   useEffect(() => {
     disableScroll()
     return () => enableScorll()
@@ -49,7 +52,7 @@ export const ModalSubmit = ({ modalHandler }) => {
     db.doc(data?.name).set(data)
   }
 
-  const submitHandler = async (e) => {
+  const submitHandler = (e) => {
     e.preventDefault()
     const data = {
       name: name.value,
@@ -58,8 +61,14 @@ export const ModalSubmit = ({ modalHandler }) => {
       phoneNumber: Number(phoneNumber.value),
     }
     // submit 할 데이터 받아서 firestore 전송하기
-    submitData(data)
-    closeModalHandler(e)
+    if (Object.values(data).indexOf('') === -1) {
+      setValidation(true)
+      submitData(data)
+      closeModalHandler(e)
+    } else {
+      // 빈 데이터가 있을 때 핸들링
+      setValidation(false)
+    }
   }
 
   return (
@@ -102,6 +111,9 @@ export const ModalSubmit = ({ modalHandler }) => {
               {...phoneNumber}
             />
           </ModalInputWrapper>
+          {validation ? null : (
+            <Warning>** 빈 칸을 모두 채워주세요. **</Warning>
+          )}
         </ModalContent>
         <ModalBtnWrapper>
           <ModalBtn onClick={closeModalHandler}>취소</ModalBtn>

@@ -88,3 +88,9 @@ export const ModalInputWrapper = styled.div`
   flex-direction: column;
   margin: 15px 0;
 `
+
+export const Warning = styled.p`
+  color: red;
+  margin-bottom: 15px;
+  font-size: var(--fz-sm);
+`
