@@ -62,7 +62,7 @@ export const ModalBtnWrapper = styled.div`
   }
 `
 
-export const ModalCloseBtn = styled.button`
+export const CloseBtn = styled.button`
   position: absolute;
   right: 10px;
   top: 5px;
