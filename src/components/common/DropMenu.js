@@ -1,3 +1,5 @@
+import * as Modal from './../Modal'
+
 import {
   DropdownLink,
   DropdownMenuItem,
@@ -8,7 +10,6 @@ import { faComments, faPaste, faPhone } from '@fortawesome/free-solid-svg-icons'
 
 import CopyToClipboard from 'react-copy-to-clipboard'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import Modal from './Modal'
 
 const DropMenu = ({ menuType, idx, parent }) => {
   const COPY = 'copy'
@@ -146,7 +147,7 @@ const DropMenu = ({ menuType, idx, parent }) => {
   return (
     <>
       {modalOpen ? (
-        <Modal
+        <Modal.Default
           modalContent={getModalContent(type)}
           callback={getCallbackFn(type)}
           modalHandler={onClickMenu}

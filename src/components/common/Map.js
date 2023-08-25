@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 
-import { MapContainer } from '../styles/s-components/map'
+import { MapContainer } from '../../styles/s-components/map'
 import { debounce } from 'lodash'
 
 const { kakao } = window

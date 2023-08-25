@@ -2,7 +2,7 @@ import { styled } from 'styled-components'
 
 export const CarouselContainer = styled.div`
   width: 100%;
-  height: calc(var(--vh, 1vh) * 60);
+  height: var(--img-height);
   margin: 10px auto;
   overflow: hidden;
   position: relative;
@@ -20,7 +20,7 @@ export const ImageBox = styled.ul`
 
 export const Img = styled.img`
   width: ${(props) => props.width || '90vw'};
-  height: calc(var(--vh, 1vh) * 60);
+  height: var(--img-height);
   object-fit: cover;
 `
 

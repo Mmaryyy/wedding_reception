@@ -7,7 +7,7 @@ import {
 
 import React from 'react'
 
-const Invite = () => {
+export const Invite = () => {
   const comments = [
     '본식에 초대하지 못하는',
     '죄송한 마음을 담아,',
@@ -27,5 +27,3 @@ const Invite = () => {
     </ContentWrapper>
   )
 }
-
-export default Invite

@@ -26,7 +26,7 @@ export const GlobalStyle = createGlobalStyle`
     appearance: none; -webkit-appearance: none;
     outline: none; background: none;
     border: none; border-radius: 0;
-    margin: 0; padding: 0; line-height: 1;
+    margin: 0; padding: 0;
   }
   input:-webkit-autofill, 
   input:-webkit-autofill:hover, 

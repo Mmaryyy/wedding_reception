@@ -1,15 +1,16 @@
-import React, { useEffect, useState, useRef } from 'react'
-import { debounce } from 'lodash'
 import {
+  BtnWrapper,
+  Bullet,
+  BulletContainer,
   CarouselContainer,
+  ControllContainer,
   ImageBox,
   Img,
-  ControllContainer,
-  BtnWrapper,
   SlideBtn,
-  BulletContainer,
-  Bullet,
-} from '../styles/s-components/carousel'
+} from '../../styles/s-components/carousel'
+import React, { useEffect, useRef, useState } from 'react'
+
+import { debounce } from 'lodash'
 
 const Carousel = ({ imgSource }) => {
   const TOTAL_IMG = imgSource.length - 1

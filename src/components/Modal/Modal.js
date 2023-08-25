@@ -2,26 +2,18 @@ import {
   ModalBack,
   ModalBtn,
   ModalBtnWrapper,
+  ModalCloseBtn,
   ModalContainer,
   ModalContent,
   ModalContentWrapper,
 } from '../../styles/s-components/modal'
 import React, { useEffect } from 'react'
+import { disableScroll, enableScorll } from './../../utils/scroll'
 
-const Modal = ({ modalContent, callback, modalHandler }) => {
-  const disableScroll = () => {
-    document.body.style.cssText = `
-      top: -${window.scrollY}px;
-      overflow-y: hidden;
-      width: 100%;
-    `
-  }
-  const enableScorll = () => {
-    const scrollY = document.body.style.top
-    document.body.style.cssText = ``
-    window.scrollTo(0, parseInt(scrollY || '0', 10) * -1)
-  }
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faXmark } from '@fortawesome/free-solid-svg-icons'
 
+export const Modal = ({ modalContent, callback, modalHandler, btnContent }) => {
   useEffect(() => {
     disableScroll()
     return () => enableScorll()
@@ -41,20 +33,19 @@ const Modal = ({ modalContent, callback, modalHandler }) => {
     <ModalContainer className="modal_container">
       <ModalBack onClick={closeModalHandler} className="modal_back" />
       <ModalContentWrapper>
+        <ModalCloseBtn onClick={closeModalHandler}>
+          <FontAwesomeIcon icon={faXmark} size="xl" />
+        </ModalCloseBtn>
         <ModalContent>{modalContent}</ModalContent>
-        <ModalBtnWrapper callback={callback}>
-          {callback ? (
+        {callback ? (
+          <ModalBtnWrapper>
             <ModalBtn onClick={closeModalHandler}>취소</ModalBtn>
-          ) : null}
-          <ModalBtn
-            onClick={callback ? confirmModalHandler : closeModalHandler}
-          >
-            확인
-          </ModalBtn>
-        </ModalBtnWrapper>
+            <ModalBtn onClick={confirmModalHandler}>확인</ModalBtn>
+          </ModalBtnWrapper>
+        ) : (
+          <ModalBtn onClick={closeModalHandler}>확인</ModalBtn>
+        )}
       </ModalContentWrapper>
     </ModalContainer>
   )
 }
-
-export default Modal

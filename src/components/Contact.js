@@ -5,7 +5,7 @@ import Dropdown from './common/Dropdown'
 import React from 'react'
 import { useSelector } from 'react-redux'
 
-const Contact = () => {
+export const Contact = () => {
   const count = Object.keys(useSelector((state) => state.parents))
   const parents = useSelector((state) => state.parents)
   const dropdownContent = ['forCall', 'forPay']
@@ -31,5 +31,3 @@ const Contact = () => {
     </InnerContainer>
   )
 }
-
-export default Contact

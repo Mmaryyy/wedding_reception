@@ -1,3 +1,5 @@
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { CheckList, Default } from './pages'
 import {
   InnerBox,
   InnerWrapper,
@@ -5,13 +7,7 @@ import {
 } from './styles/s-components/common'
 import React, { useEffect } from 'react'
 
-import { BrowserRouter } from 'react-router-dom'
-import Contact from './components/Contact'
-import Gallery from './components/Gallery'
 import { GlobalStyle } from './styles/s-global/GlobalStyle'
-import Guidance from './components/Guidance'
-import Intro from './components/Intro'
-import Invite from './components/Invite'
 import { StyleSheetManager } from 'styled-components'
 import isPropValid from '@emotion/is-prop-valid'
 
@@ -28,11 +24,10 @@ function App() {
           <OuterWrapper>
             <InnerWrapper>
               <InnerBox>
-                <Invite />
-                <Intro />
-                <Gallery />
-                <Guidance />
-                <Contact />
+                <Routes>
+                  <Route path="/" element={<Default />} />
+                  <Route path="/list" element={<CheckList />} />
+                </Routes>
               </InnerBox>
             </InnerWrapper>
           </OuterWrapper>
