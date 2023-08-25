@@ -1,7 +1,7 @@
 import {
-  BtnWrapper,
   Bullet,
   BulletContainer,
+  CarouselBtnWrapper,
   CarouselContainer,
   ControllContainer,
   ImageBox,
@@ -109,14 +109,14 @@ const Carousel = ({ imgSource }) => {
         ))}
       </ImageBox>
       <ControllContainer className="controll">
-        <BtnWrapper>
+        <CarouselBtnWrapper>
           <SlideBtn className="prev" onClick={handlePrevSlide}>
             {'<'}
           </SlideBtn>
           <SlideBtn className="next" onClick={handleNextSlide}>
             {'>'}
           </SlideBtn>
-        </BtnWrapper>
+        </CarouselBtnWrapper>
         <BulletContainer>
           {imgSource.map((el, idx) => (
             <Bullet
