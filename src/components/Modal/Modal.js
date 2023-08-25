@@ -2,7 +2,6 @@ import {
   ModalBack,
   ModalBtn,
   ModalBtnWrapper,
-  ModalCloseBtn,
   ModalContainer,
   ModalContent,
   ModalContentWrapper,
@@ -10,10 +9,9 @@ import {
 import React, { useEffect } from 'react'
 import { disableScroll, enableScorll } from './../../utils/scroll'
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faXmark } from '@fortawesome/free-solid-svg-icons'
+import ModalCloseBtn from '../common/ModalCloseBtn'
 
-export const Modal = ({ modalContent, callback, modalHandler, btnContent }) => {
+export const Modal = ({ modalContent, callback, modalHandler }) => {
   useEffect(() => {
     disableScroll()
     return () => enableScorll()
@@ -33,9 +31,7 @@ export const Modal = ({ modalContent, callback, modalHandler, btnContent }) => {
     <ModalContainer className="modal_container">
       <ModalBack onClick={closeModalHandler} className="modal_back" />
       <ModalContentWrapper>
-        <ModalCloseBtn onClick={closeModalHandler}>
-          <FontAwesomeIcon icon={faXmark} size="xl" />
-        </ModalCloseBtn>
+        <ModalCloseBtn modalHandler={closeModalHandler} />
         <ModalContent>{modalContent}</ModalContent>
         {callback ? (
           <ModalBtnWrapper>

@@ -33,6 +33,12 @@ export const Attendance = () => {
     </span>,
   ]
 
+  const MODALCONTENTS = [
+    '먼 길 오시는 걸음,',
+    '모자람 없이 대접할 수 있도록',
+    '참석 의사를 미리 말씀해주세요.',
+  ]
+
   return (
     <>
       <ContentWrapper padding={'50px 0 0 0'}>
@@ -58,7 +64,11 @@ export const Attendance = () => {
         </BaseBtn>
       </ContentWrapper>
       {attendanceModalOpen ? (
-        <Modal.Submit modalHandler={attendanceModalHandler} />
+        <Modal.Submit
+          modalTitle={'참석 여부 입력하기'}
+          modalContents={MODALCONTENTS}
+          modalHandler={attendanceModalHandler}
+        />
       ) : null}
     </>
   )
