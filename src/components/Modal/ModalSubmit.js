@@ -102,9 +102,9 @@ export const ModalSubmit = ({ modalTitle, modalContents, modalHandler }) => {
                 {...phoneNumber}
               />
             </ModalInputWrapper>
-            <Warning>
-              {validation ? '' : '** 빈 칸을 모두 채워주세요. **'}
-            </Warning>
+            {validation ? (
+              <Warning>** 빈 칸을 모두 채워주세요. **</Warning>
+            ) : null}
           </ModalContent>
           <ModalBtnWrapper>
             <ModalBtn onClick={modalHandler}>취소</ModalBtn>
