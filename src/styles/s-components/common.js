@@ -70,6 +70,12 @@ export const InputWrapper = styled.div`
   }
 `
 
+export const BtnWrapper = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+`
+
 export const CustomFieldset = styled.fieldset`
   display: flex;
   flex-direction: column;
