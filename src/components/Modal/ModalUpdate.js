@@ -43,7 +43,9 @@ export const ModalUpdate = ({
   const [isComplete, setIsComplete] = useState(false)
   const [isLogin, setIsLogin] = useState(false)
   const [validation, setValidation] = useState(true)
-
+  const [warningContent, setWarningContent] = useState(
+    '** 빈 칸을 모두 채워주세요 **'
+  )
   // update input create
   const name = useInput(defaultData.name)
   const totalPeople = useInput(defaultData.totalPeople)
@@ -103,7 +105,6 @@ export const ModalUpdate = ({
     snapshot.forEach((doc) => {
       const docId = doc.id
       const data = doc.data()
-      console.log(data)
       setDefaultData({ docId, ...data })
     })
   }
@@ -113,6 +114,10 @@ export const ModalUpdate = ({
     const isCorrectUser = await compareUserInfo(e, id, password)
     // 빈 data 핸들링
     if (!id || !password) {
+      setValidation(false)
+    }
+    if (!isCorrectUser) {
+      setWarningContent('계정 정보가 유효하지 않습니다.')
       setValidation(false)
     }
     if (isCorrectUser) {
@@ -136,7 +141,7 @@ export const ModalUpdate = ({
               return <Content key={idx}>{el}</Content>
             })}
             {!isLogin ? (
-              <InputWrapper>
+              <InputWrapper className="login_input_wrapper">
                 <Input.Text
                   label={'성함'}
                   id={'id'}
@@ -151,7 +156,7 @@ export const ModalUpdate = ({
                 />
               </InputWrapper>
             ) : (
-              <ModalInputWrapper>
+              <ModalInputWrapper className="update_form_wrapper">
                 <Input.Text
                   label={'참석자 성함'}
                   id={'inputName'}
@@ -181,9 +186,7 @@ export const ModalUpdate = ({
                 />
               </ModalInputWrapper>
             )}
-            {!validation ? (
-              <Warning>** 빈 칸을 모두 채워주세요. **</Warning>
-            ) : null}
+            {!validation ? <Warning>{warningContent}</Warning> : null}
           </ModalContent>
           {!isLogin ? (
             <BaseBtn
