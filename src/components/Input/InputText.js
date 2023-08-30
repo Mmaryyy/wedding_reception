@@ -6,8 +6,14 @@ import {
 
 import React from 'react'
 
-export const InputText = ({ label, id, placeholder, ...rest }) => {
-  const { value, onChange } = rest
+export const InputText = ({
+  label,
+  id,
+  placeholder,
+  value,
+  onChange,
+  ...rest
+}) => {
   return (
     <InputWrapper className={`input_${id}`}>
       <BaseLabel htmlFor={`input_${id}`}>{label}</BaseLabel>
@@ -17,6 +23,7 @@ export const InputText = ({ label, id, placeholder, ...rest }) => {
         placeholder={placeholder}
         value={value}
         onChange={onChange}
+        {...rest}
         required
       />
     </InputWrapper>

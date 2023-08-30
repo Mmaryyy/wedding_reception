@@ -34,7 +34,7 @@ export const ControllContainer = styled.div`
   align-items: center;
 `
 
-export const BtnWrapper = styled.div`
+export const CarouselBtnWrapper = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;

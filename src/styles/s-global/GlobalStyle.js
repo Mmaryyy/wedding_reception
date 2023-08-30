@@ -44,12 +44,6 @@ export const GlobalStyle = createGlobalStyle`
   a {
     text-decoration: none; color: inherit;
   }
-  a:visited {
-    background: none; color: inherit;
-  }
-  a:active {
-    background: none; color: inherit;
-  }
   #root {
     width: 100%;
     max-width: 720px;

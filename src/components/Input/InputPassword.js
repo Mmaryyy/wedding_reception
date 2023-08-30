@@ -12,9 +12,10 @@ export const InputPassword = ({
   placeholder,
   minLength,
   maxLength,
+  value,
+  onChange,
   ...rest
 }) => {
-  const { value, onChange } = rest
   return (
     <InputWrapper className={`input_${id}`}>
       <BaseLabel htmlFor={`input_${id}`}>{label}</BaseLabel>
@@ -26,6 +27,7 @@ export const InputPassword = ({
         onChange={onChange}
         maxLength={maxLength}
         required
+        {...rest}
       />
     </InputWrapper>
   )

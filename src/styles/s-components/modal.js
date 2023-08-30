@@ -1,3 +1,4 @@
+import { BaseBtn } from './common'
 import { styled } from 'styled-components'
 
 export const ModalContainer = styled.div`
@@ -61,23 +62,20 @@ export const ModalBtnWrapper = styled.div`
   }
 `
 
-export const ModalCloseBtn = styled.button`
+export const CloseBtn = styled.button`
   position: absolute;
   right: 10px;
   top: 5px;
   & > svg {
     color: var(--black-200);
   }
+  cursor: pointer;
 `
 
-export const ModalBtn = styled.button`
-  width: 100%;
+export const ModalBtn = styled(BaseBtn)`
   height: 2.5rem;
-  background-color: var(--gold-100);
-  border-radius: 5px;
   padding: 5px;
   margin: 0 5px;
-  color: var(--gold-400);
   @media screen and (max-width: 720px) {
     font-size: var(--fz-sm);
   }
