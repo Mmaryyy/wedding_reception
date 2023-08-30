@@ -2,6 +2,7 @@ import * as Modal from './Modal'
 
 import {
   BaseBtn,
+  BtnWrapper,
   Content,
   ContentWrapper,
   DivisionLine,
@@ -13,9 +14,13 @@ import { Link } from 'react-router-dom'
 
 export const Attendance = () => {
   const [attendanceModalOpen, setAttendanceModalOpen] = useState(false)
-
   const attendanceModalHandler = () => {
     setAttendanceModalOpen(!attendanceModalOpen)
+  }
+
+  const [updateModalOpen, setUpdateModalOpen] = useState(false)
+  const updateModalHandler = () => {
+    setUpdateModalOpen(!updateModalOpen)
   }
 
   const CONTENTS = [
@@ -56,9 +61,14 @@ export const Attendance = () => {
             )
           })}
         </div>
-        <BaseBtn margin={'10px 0 0 0'} onClick={attendanceModalHandler}>
-          참석 의사 전달하기
-        </BaseBtn>
+        <BtnWrapper className="button_wrapper">
+          <BaseBtn margin={'10px 5px 0 0'} onClick={attendanceModalHandler}>
+            참석 의사 전달하기
+          </BaseBtn>
+          <BaseBtn margin={'10px 0 0 0'} onClick={updateModalHandler}>
+            참석 내용 수정하기
+          </BaseBtn>
+        </BtnWrapper>
         <BaseBtn margin={'10px 0 0 0'} as={Link} to={'/list'}>
           (혼주 전용) 참석 명단 확인
         </BaseBtn>
@@ -68,6 +78,12 @@ export const Attendance = () => {
           modalTitle={'참석 여부 입력하기'}
           modalContents={MODALCONTENTS}
           modalHandler={attendanceModalHandler}
+        />
+      ) : null}
+      {updateModalOpen ? (
+        <Modal.Update
+          modalTitle={'참석 여부 수정하기'}
+          modalHandler={updateModalHandler}
         />
       ) : null}
     </>
