@@ -20,12 +20,16 @@ import { firestore } from '../../firebase'
 import useInput from '../../utils/useInput'
 import { useSelector } from 'react-redux'
 
-export const ModalSubmit = ({ modalTitle, modalContents, modalHandler }) => {
+export const ModalSubmit = ({
+  modalTitle,
+  modalContents = [],
+  modalHandler,
+}) => {
   const parents = useSelector((state) => state.parents)
   const name = useInput('')
   const totalPeople = useInput('default')
   const selectedParents = useInput('daddy')
-  const phoneNumber = useInput('')
+  const password = useInput('')
 
   const peopleOption = new Array(10).fill(1)
 
@@ -39,7 +43,7 @@ export const ModalSubmit = ({ modalTitle, modalContents, modalHandler }) => {
 
   const submitData = (data) => {
     const db = firestore.collection('attendance')
-    db.doc(data?.name).set(data)
+    db.add(data)
     setIsComplete(true)
   }
 
@@ -49,7 +53,7 @@ export const ModalSubmit = ({ modalTitle, modalContents, modalHandler }) => {
       name: name.value,
       selectedParents: selectedParents.value,
       totalPeople: Number(totalPeople.value),
-      phoneNumber: Number(phoneNumber.value),
+      password: password.value,
     }
     // submit 할 데이터 받아서 firestore 전송하기
     if (Object.values(data).indexOf('') === -1) {
@@ -62,12 +66,12 @@ export const ModalSubmit = ({ modalTitle, modalContents, modalHandler }) => {
   }
 
   return (
-    <ModalContainer className="modal_container" as="form">
+    <ModalContainer className="modal_container">
       <ModalBack onClick={modalHandler} className="modal_back" />
       {isComplete ? (
         <Alert callback={modalHandler} contents={'제출이 완료되었습니다.'} />
       ) : (
-        <ModalContentWrapper>
+        <ModalContentWrapper as="form">
           <ModalCloseBtn modalHandler={modalHandler} />
           <ModalContent>
             <Title margin={'20px 0'}>{modalTitle}</Title>
@@ -99,10 +103,10 @@ export const ModalSubmit = ({ modalTitle, modalContents, modalHandler }) => {
                 label={'휴대폰 뒷번호 4자리'}
                 placeholder={'추후 내용 확인/수정 용도로 사용됩니다.'}
                 maxLength={4}
-                {...phoneNumber}
+                {...password}
               />
             </ModalInputWrapper>
-            {validation ? (
+            {!validation ? (
               <Warning>** 빈 칸을 모두 채워주세요. **</Warning>
             ) : null}
           </ModalContent>
