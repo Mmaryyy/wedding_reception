@@ -9,8 +9,14 @@ import {
 
 import React from 'react'
 
-export const InputRadio = ({ id, label, radioArr = [], ...rest }) => {
-  const { value, onChange } = rest
+export const InputRadio = ({
+  id,
+  label,
+  radioArr = [],
+  value,
+  onChange,
+  ...rest
+}) => {
   return (
     <InputWrapper className={`input_${id}_radio`}>
       <CustomFieldset required>
@@ -33,6 +39,7 @@ export const InputRadio = ({ id, label, radioArr = [], ...rest }) => {
                   name={id}
                   checked={value === role}
                   onChange={onChange}
+                  {...rest}
                 />
               </div>
             )
