@@ -3,7 +3,7 @@ import 'firebase/compat/firestore'
 import firebase from 'firebase/compat/app'
 
 const firebaseConfig = {
-  apiKey: process.env.FIREBASE_API_KEY,
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
   authDomain: 'wedding-reception-93e0b.firebaseapp.com',
   projectId: 'wedding-reception-93e0b',
   storageBucket: 'wedding-reception-93e0b.appspot.com',

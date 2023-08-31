@@ -13,7 +13,7 @@ const { Kakao } = window
 export const ShareLink = () => {
   useEffect(() => {
     if (!window.Kakao.isInitialized()) {
-      window.Kakao.init(process.env.KAKAO_APP_KEY)
+      window.Kakao.init(process.env.REACT_APP_KAKAO_APP_KEY)
     }
   }, [])
 
@@ -24,19 +24,19 @@ export const ShareLink = () => {
         title: '피로연에 초대합니다.',
         description:
           '이춘홍, 김순덕의 둘째 딸 혜인이와 사위의 앞날을 축복해 주세요.',
-        imageUrl: `${process.env.BASE_URL}/assets/share_thumbnail.png`,
+        imageUrl: `${process.env.REACT_APP_BASE_URL}/assets/share_thumbnail.png`,
         imageHeight: 750,
         link: {
-          mobileWebUrl: process.env.BASE_URL,
-          webUrl: process.env.BASE_URL,
+          mobileWebUrl: process.env.REACT_APP_BASE_URL,
+          webUrl: process.env.REACT_APP_BASE_URL,
         },
       },
       buttons: [
         {
           title: '웹으로 이동',
           link: {
-            mobileWebUrl: process.env.BASE_URL,
-            webUrl: process.env.BASE_URL,
+            mobileWebUrl: process.env.REACT_APP_BASE_URL,
+            webUrl: process.env.REACT_APP_BASE_URL,
           },
         },
       ],
