@@ -1,17 +1,13 @@
+import { CheckList, Default } from './pages'
 import {
   InnerBox,
   InnerWrapper,
   OuterWrapper,
 } from './styles/s-components/common'
 import React, { useEffect } from 'react'
+import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 
-import { BrowserRouter } from 'react-router-dom'
-import Contact from './components/Contact'
-import Gallery from './components/Gallery'
 import { GlobalStyle } from './styles/s-global/GlobalStyle'
-import Guidance from './components/Guidance'
-import Intro from './components/Intro'
-import Invite from './components/Invite'
 import { StyleSheetManager } from 'styled-components'
 import isPropValid from '@emotion/is-prop-valid'
 
@@ -20,24 +16,22 @@ function App() {
   useEffect(() => {
     document.documentElement.style.setProperty('--vh', `${vh}px`)
   }, [])
+  const router = createBrowserRouter([
+    { path: '/', element: <Default /> },
+    { path: '/list', element: <CheckList /> },
+  ])
   return (
     <>
-      <BrowserRouter>
-        <StyleSheetManager shouldForwardProp={isPropValid}>
-          <GlobalStyle />
-          <OuterWrapper>
-            <InnerWrapper>
-              <InnerBox>
-                <Invite />
-                <Intro />
-                <Gallery />
-                <Guidance />
-                <Contact />
-              </InnerBox>
-            </InnerWrapper>
-          </OuterWrapper>
-        </StyleSheetManager>
-      </BrowserRouter>
+      <StyleSheetManager shouldForwardProp={isPropValid}>
+        <GlobalStyle />
+        <OuterWrapper>
+          <InnerWrapper>
+            <InnerBox>
+              <RouterProvider router={router} />
+            </InnerBox>
+          </InnerWrapper>
+        </OuterWrapper>
+      </StyleSheetManager>
     </>
   )
 }

@@ -1,11 +1,11 @@
 import { AppBtnWrapper, GuideContainer } from '../styles/s-components/guide'
 
-import LinkBtn from './LinkBtn'
-import Map from './Map'
+import LinkBtn from './common/LinkBtn'
+import Map from './common/Map'
 import React from 'react'
 import { Title } from '../styles/s-components/common'
 
-const Guidance = () => {
+export const Guidance = () => {
   const appArr = [
     {
       type: 'kakaonavi',
@@ -34,5 +34,3 @@ const Guidance = () => {
     </GuideContainer>
   )
 }
-
-export default Guidance

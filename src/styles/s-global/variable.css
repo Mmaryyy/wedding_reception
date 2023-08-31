@@ -20,6 +20,11 @@
   --fw-light: 400;
   --fw-thin: 200;
 
+  /* height */
+  --menu-height: 3rem;
+  --img-height: 60rem;
+  --map-height: 20rem;
+
   /* color */
   --navy: #192231;
   --kakaoYellow: #f8df00;
@@ -47,4 +52,12 @@
   --shadow-100: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   --shadow-200: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   --shadow-300: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+}
+
+@media screen and (max-width: 720px) {
+  :root {
+    --menu-height: 2rem;
+    --img-height: 30rem;
+    --map-height: 20rem;
+  }
 }
