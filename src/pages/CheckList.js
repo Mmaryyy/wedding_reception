@@ -78,21 +78,21 @@ export const CheckList = () => {
             <tr>
               <TableHead>이름</TableHead>
               <TableHead>구분</TableHead>
-              <TableHead>참석 인원</TableHead>
               <TableHead>구분 번호</TableHead>
+              <TableHead>참석 인원</TableHead>
             </tr>
           </thead>
           <TableBodyWrapper>
             {list.map((el, idx) => {
-              const { name, selectedParents, totalPeople, phoneNumber } = el
+              const { name, selectedParents, totalPeople, password } = el
               const parents = selectedParents === 'daddy' ? '아빠' : '엄마'
               total = total + totalPeople
               return (
                 <tr key={idx}>
                   <TableData>{name}</TableData>
                   <TableData>{parents}</TableData>
+                  <TableData>{password}</TableData>
                   <TableData>{totalPeople}</TableData>
-                  <TableData>{phoneNumber}</TableData>
                 </tr>
               )
             })}
