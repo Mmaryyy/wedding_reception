@@ -7,7 +7,7 @@ const LinkBtn = ({ type, title }) => {
   const LNG = 126.8344649
   useEffect(() => {
     if (!window.Kakao.isInitialized()) {
-      window.Kakao.init('b2d2b92adb867bc2d028a2dc23a68643')
+      window.Kakao.init(process.env.KAKAO_APP_KEY)
     }
   }, [])
   const getAppScheme = () => {
