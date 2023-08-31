@@ -14,11 +14,11 @@ import { debounce } from 'lodash'
 
 const Carousel = ({ imgSource }) => {
   const TOTAL_IMG = imgSource.length - 1
-  // const IMG_WIDTH = useRef(null)
+  const ref = useRef(null)
+
   const [windowWidth, setWindowWidth] = useState(window.innerWidth)
   const [imgWidth, setImgWidth] = useState(0)
   const [count, setCount] = useState(0)
-  const ref = useRef(null)
 
   const handleResize = debounce(() => {
     setWindowWidth(window.innerWidth)
@@ -30,7 +30,7 @@ const Carousel = ({ imgSource }) => {
       // cleanUp
       window.removeEventListener('resize', handleResize)
     }
-  })
+  }, [])
   // 렌더링될때 최상위 div의 너비 가져오기
   useEffect(() => {
     setImgWidth(ref.current.clientWidth)

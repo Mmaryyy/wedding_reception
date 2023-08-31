@@ -115,10 +115,12 @@ export const ModalUpdate = ({
     // 빈 data 핸들링
     if (!id || !password) {
       setValidation(false)
+      return
     }
     if (!isCorrectUser) {
       setWarningContent('계정 정보가 유효하지 않습니다.')
       setValidation(false)
+      return
     }
     if (isCorrectUser) {
       getData(id, password)
