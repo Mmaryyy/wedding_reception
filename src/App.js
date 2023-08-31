@@ -1,4 +1,3 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { CheckList, Default } from './pages'
 import {
   InnerBox,
@@ -6,6 +5,7 @@ import {
   OuterWrapper,
 } from './styles/s-components/common'
 import React, { useEffect } from 'react'
+import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 
 import { GlobalStyle } from './styles/s-global/GlobalStyle'
 import { StyleSheetManager } from 'styled-components'
@@ -16,23 +16,22 @@ function App() {
   useEffect(() => {
     document.documentElement.style.setProperty('--vh', `${vh}px`)
   }, [])
+  const router = createBrowserRouter([
+    { path: '/', element: <Default /> },
+    { path: '/list', element: <CheckList /> },
+  ])
   return (
     <>
-      <BrowserRouter>
-        <StyleSheetManager shouldForwardProp={isPropValid}>
-          <GlobalStyle />
-          <OuterWrapper>
-            <InnerWrapper>
-              <InnerBox>
-                <Routes>
-                  <Route path="/" element={<Default />} />
-                  <Route path="/list" element={<CheckList />} />
-                </Routes>
-              </InnerBox>
-            </InnerWrapper>
-          </OuterWrapper>
-        </StyleSheetManager>
-      </BrowserRouter>
+      <StyleSheetManager shouldForwardProp={isPropValid}>
+        <GlobalStyle />
+        <OuterWrapper>
+          <InnerWrapper>
+            <InnerBox>
+              <RouterProvider router={router} />
+            </InnerBox>
+          </InnerWrapper>
+        </OuterWrapper>
+      </StyleSheetManager>
     </>
   )
 }
