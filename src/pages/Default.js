@@ -5,6 +5,7 @@ import {
   Guidance,
   Intro,
   Invite,
+  ShareLink,
 } from '../components/index'
 
 import React from 'react'
@@ -18,6 +19,7 @@ export const Default = () => {
       <Guidance />
       <Contact />
       <Attendance />
+      <ShareLink />
     </>
   )
 }
