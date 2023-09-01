@@ -87,8 +87,8 @@ export const ModalUpdate = ({
 
   // where query 중복으로 같은 name - password 가 있는지 확인 -> 로그인 대체
   const compareUserInfo = async (e, id, password) => {
-    const collectionRef = firestore.collection('attendance')
-    const isCorrectUserInfo = await collectionRef
+    const db = firestore.collection('attendance')
+    const isCorrectUserInfo = await db
       .where('name', '==', id)
       .where('password', '==', password)
       .get()
@@ -96,8 +96,8 @@ export const ModalUpdate = ({
   }
 
   const getData = async (id, password) => {
-    const collectionRef = firestore.collection('attendance')
-    const snapshot = await collectionRef
+    const db = firestore.collection('attendance')
+    const snapshot = await db
       .where('name', '==', id)
       .where('password', '==', password)
       .get()
