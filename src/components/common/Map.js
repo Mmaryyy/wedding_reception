@@ -1,6 +1,6 @@
+import { MapContainer, MapCover } from '../../styles/s-components/map'
 import React, { useEffect, useRef, useState } from 'react'
 
-import { MapContainer } from '../../styles/s-components/map'
 import { debounce } from 'lodash'
 
 const { kakao } = window
@@ -49,7 +49,14 @@ const Map = () => {
     })
     customOverlay.setMap(map)
   }, [windowWidth])
-  return <MapContainer id="map" ref={ref} />
+
+  return (
+    <>
+      <MapContainer id="map" ref={ref}>
+        <MapCover id="map_cover" />
+      </MapContainer>
+    </>
+  )
 }
 
 export default Map
