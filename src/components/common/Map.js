@@ -22,7 +22,6 @@ const Map = () => {
       window.removeEventListener('resize', handleResize)
     }
   })
-  // 렌더링될때 최상위 div의 너비 가져오기
 
   useEffect(() => {
     // 지도 생성
@@ -30,6 +29,7 @@ const Map = () => {
     const options = {
       center: new kakao.maps.LatLng(LAT, LNG),
       draggable: false,
+      disableDoubleClickZoom: true,
       level: 4,
     }
     const map = new kakao.maps.Map(container, options)
