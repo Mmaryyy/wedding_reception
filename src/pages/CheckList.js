@@ -25,10 +25,8 @@ export const CheckList = () => {
   let total = 0
   const comparePassword = async (e) => {
     // db의 token과 비교하여 같은 값이 있는지 여부 리턴
-    const data = await firestore
-      .collection('authorization')
-      .where('value', '==', e.target.value)
-      .get()
+    const db = firestore.collection('authorization')
+    const data = await db.where('value', '==', e.target.value).get()
     return !data.empty
   }
 
@@ -43,8 +41,8 @@ export const CheckList = () => {
   const getList = async () => {
     try {
       const data = []
-      const collectionRef = firestore.collection('attendance')
-      const listSnapshot = await collectionRef.get()
+      const db = firestore.collection('attendance')
+      const listSnapshot = await db.get()
 
       listSnapshot.forEach((doc) => {
         data.push({
