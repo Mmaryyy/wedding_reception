@@ -42,12 +42,13 @@ export const ShareLink = () => {
       ],
     })
   }
+
   return (
-    <ShareWrapper id="kakao-link-btn" href="javascript:sendLink()">
-      <ShareBtn onClick={() => shareKakao()}>
+    <ShareWrapper>
+      <ShareBtn id="share_btn" onClick={() => shareKakao()}>
         <FontAwesomeIcon icon={faLink} size="xl" />
       </ShareBtn>
-      <ShareLabel>카카오톡 공유하기</ShareLabel>
+      <ShareLabel htmlFor="share_btn">카카오톡 공유하기</ShareLabel>
     </ShareWrapper>
   )
 }

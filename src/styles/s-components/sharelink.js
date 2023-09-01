@@ -1,6 +1,6 @@
 import { styled } from 'styled-components'
 
-export const ShareWrapper = styled.a`
+export const ShareWrapper = styled.section`
   margin: 10px 0;
   display: flex;
   flex-direction: column;
