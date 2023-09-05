@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 
 const useInput = (initialValue) => {
   const [value, setValue] = useState(initialValue)
-  const onChange = (e) => {
+  const onChange = useCallback((e) => {
     setValue(e.target.value)
-  }
+  }, [])
   useEffect(() => {
     setValue(initialValue)
   }, [initialValue])
